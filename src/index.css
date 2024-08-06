@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+  }
+  h1 {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: bold;
+  }
+  h3 {
+    font-size: clamp(18px, 3vw, 20px);
+    font-weight: medium;
+  }
+  title {
+    font-size: clamp(18px, 3vw, 20px);
+  }
+  p {
+    font-size: clamp(16px, 3vw, 18px);
+    font-weight: medium;
+  }
+}
+
+@layer components {
+  .container {
+    @apply 2xl:max-w-[1320px] xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] w-full;
+  }
+
+  .bannerImages {
+    @apply bg-no-repeat bg-center bg-cover;
+  }
+
+  .input:focus,
+  .input:active {
+    @apply border-0;
+  }
+
+  .select:focus,
+  .select:active {
+    @apply border-brown ring-0 outline-0;
+  }
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .xl-col {
+    @apply flex flex-col justify-center;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .lg-col {
+    @apply flex flex-col justify-center;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .md-col {
+    @apply flex flex-col justify-center;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
