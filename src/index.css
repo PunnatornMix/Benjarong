@@ -15,6 +15,10 @@
     font-size: clamp(18px, 3vw, 20px);
     font-weight: medium;
   }
+  h5 {
+    font-size: clamp(10px, 3vw, 14px);
+    font-weight: medium;
+  }
   title {
     font-size: clamp(18px, 3vw, 20px);
   }
@@ -41,6 +45,75 @@
   .select:focus,
   .select:active {
     @apply border-brown ring-0 outline-0;
+  }
+  .bg-gra-Lbrown {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 20%,
+      #f8dd9d 77%
+    ) !important;
+  }
+  .bg-gra-red {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 20%,
+      #f7b4ab 77%
+    ) !important;
+  }
+  .bg-gra-purple {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 20%,
+      #f3c7d5 77%
+    ) !important;
+  }
+  .bg-gra-green {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 20%,
+      #d2f0d1 77%
+    ) !important;
+  }
+  .bg-gra-gray {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 20%,
+      #eeeded 77%
+    ) !important;
+  }
+
+  /* .image-slider-container {
+    margin: 0 auto;
+    width: 400px;
+  } */
+  .image-slider-container .slick-prev:before,
+  .image-slider-container .slick-next:before {
+    color: #481210;
+    font-size: 40px;
+  }
+
+  .menuHover {
+    @apply px-2 py-1 font-medium  text-center w-[150px];
+  }
+  .menuHover:hover {
+    @apply border-b-[2.5px] w-fit mx-auto;
+    letter-spacing: 0.075em;
+  }
+  .menuActive {
+    @apply border-b-[2.5px] w-fit mx-auto;
+    letter-spacing: 0.075em;
+  }
+  .hero_animate {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform-origin: right;
+    transform: scale(1.06, 1.06);
+  }
+  .hero1animate {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform-origin: center;
+    transform: scale(1.06, 1.06);
   }
 }
 
