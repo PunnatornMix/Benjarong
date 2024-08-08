@@ -12,13 +12,13 @@ function HeroList({ title, content, src, className }) {
           <h1 className="leading-10">{title}</h1>
           <p> {content}</p>
           {/* <Button className="text-white border-white" /> */}
-          <Button />
+          <Button color="brown" outline="outline" />
         </div>
         <div
           style={{
             backgroundImage: `url(${src})`,
             backgroundSize: "125%",
-            backgroundPosition: "right 100% bottom 50% ",
+            backgroundPosition: "right 50% bottom 50% ",
           }}
           className="h-[400px] w-full self-center mx-auto bg-no-repeat hover:hero_animate"
         ></div>

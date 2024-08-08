@@ -13,18 +13,30 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../components/Footer/Footer";
+import CategoriesList from "../components/CategoriesList/CategoriesList";
+import OfferList from "../components/OfferList/OfferList";
+import ProductList from "../components/ProductList/ProductList";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
   const { t, i18n } = useTranslation();
   const [isHover, setIsHover] = useState(false);
 
-  const settings = {
+  const CategoriesSettings = {
     dots: true,
     infinite: true,
     speed: 1000,
     arrows: true,
     slidesToShow: 5,
+    slidesToScroll: 1,
+  };
+
+  const ProductSettings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    arrows: true,
+    slidesToShow: 4,
     slidesToScroll: 1,
   };
 
@@ -124,7 +136,7 @@ const Home = () => {
                 <p>
                   {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
                 </p>
-                <Button />
+                <Button color={"brown"} outline={"outline"} />
               </div>
               <img
                 src="/images/Banner/Hero/Jasmine.png"
@@ -175,17 +187,27 @@ const Home = () => {
         <section className="container mx-auto py-16">
           <h1>{lang === "th" ? "หมวดหมู่ต่างๆ" : "Featured Categories"}</h1>
           <div className="h-96 image-slider-container mt-8">
-            <Slider {...settings}>
-              {/* <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div> */}
-              <img src="/images/Banner/Hero/Jasmine.png" />
-              <img src="/images/Banner/Hero/WhiteRice.png" />
-              <img src="/images/Banner/Hero/HealthyRice.png" />
-              <img src="/images/Banner/Hero/ThaiAromaticRice.png" />
-              <img src="/images/Banner/Hero/MixedRice.png" />
+            <Slider {...CategoriesSettings}>
+              <CategoriesList
+                title={lang === "th" ? "ข้าวขาวหอมมะลิ" : ""}
+                src={"/images/Banner/Hero/Jasmine.png"}
+              />
+              <CategoriesList
+                title={lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+                src={"/images/Banner/Hero/WhiteRice.png"}
+              />
+              <CategoriesList
+                title={lang === "th" ? "ข้าวสุขภาพ" : ""}
+                src={"/images/Banner/Hero/HealthyRice.png"}
+              />
+              <CategoriesList
+                title={lang === "th" ? "ข้าวหอมปทุมธานี" : ""}
+                src={"/images/Banner/Hero/ThaiAromaticRice.png"}
+              />
+              <CategoriesList
+                title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : ""}
+                src={"/images/Banner/Hero/MixedRice.png"}
+              />
             </Slider>
           </div>
         </section>
@@ -193,8 +215,115 @@ const Home = () => {
         {lang === "th" ? "" : ""}
         {/*----- Promotion -----*/}
         <section className="container mx-auto">
-          <h1>{lang === "th" ? "" : "One More Offer For You!"}</h1>
+          <h1 className="mb-12">
+            {lang === "th"
+              ? "ข้อเสนอสุดพิเศษสำหรับคุณ"
+              : "One More Offer For You!"}
+          </h1>
+          <div className="grid grid-cols-3 gap-6">
+            <OfferList
+              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              content={
+                lang === "th"
+                  ? "There are many variations of passages of Lorem Ipsum available."
+                  : ""
+              }
+            />
+            <OfferList
+              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              content={
+                lang === "th"
+                  ? "There are many variations of passages of Lorem Ipsum available."
+                  : ""
+              }
+            />
+            <OfferList
+              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              content={
+                lang === "th"
+                  ? "There are many variations of passages of Lorem Ipsum available."
+                  : ""
+              }
+            />
+          </div>
         </section>
+
+        {/*----- Deal of the Day -----*/}
+        <section className="container mx-auto my-20">
+          <h1 className="my-4">
+            {lang === "th" ? "สินค้าลดราคาวันนี้" : "Deals Of The Day"}
+          </h1>
+          <div className=" image-slider-container ">
+            <Slider {...ProductSettings}>
+              <ProductList
+                src="/images/Banner/Hero/Jasmine.png"
+                title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+                // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
+                sale={lang === "th" ? "200 บาท" : "200 Bath"}
+                price={lang === "th" ? "250 บาท" : "250 Bath"}
+                value={3}
+              />
+              <ProductList
+                src="/images/Banner/Hero/WhiteRice.png"
+                title={lang === "th" ? "ข้าวเสาไห้ 100%" : ""}
+                sale={lang === "th" ? "300 บาท" : "300 Bath"}
+                price={lang === "th" ? "350 บาท" : "350 Bath"}
+                value={4}
+              />
+              <ProductList
+                src="/images/Banner/Hero/HealthyRice.png"
+                title={lang === "th" ? "ข้าวแดงหอม" : ""}
+                sale={lang === "th" ? "400 บาท" : "400 Bath"}
+                price={lang === "th" ? "450 บาท" : "450 Bath"}
+                value={4.5}
+              />
+              <ProductList
+                src="/images/Banner/Hero/ThaiAromaticRice.png"
+                title={lang === "th" ? "ข้าวหอม 100%" : ""}
+                sale={lang === "th" ? "500 บาท" : "500 Bath"}
+                price={lang === "th" ? "550 บาท" : "550 Bath"}
+                value={4}
+              />
+            </Slider>
+          </div>
+        </section>
+
+        {/*----- All Product -----*/}
+        <section className="container mx-auto my-20">
+          <h1 className="my-4">
+            {lang === "th" ? "สินค้าทั้งหมด" : "All Product"}
+          </h1>
+          <div className=" image-slider-container ">
+            <Slider {...ProductSettings}>
+              <ProductList
+                src="/images/Banner/Hero/Jasmine.png"
+                title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+                // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
+                sale={lang === "th" ? "200 บาท" : "200 Bath"}
+                price={lang === "th" ? "250 บาท" : "250 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/WhiteRice.png"
+                title={lang === "th" ? "ข้าวเสาไห้ 100%" : ""}
+                sale={lang === "th" ? "300 บาท" : "300 Bath"}
+                price={lang === "th" ? "350 บาท" : "350 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/HealthyRice.png"
+                title={lang === "th" ? "ข้าวแดงหอม" : ""}
+                sale={lang === "th" ? "400 บาท" : "400 Bath"}
+                price={lang === "th" ? "450 บาท" : "450 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/ThaiAromaticRice.png"
+                title={lang === "th" ? "ข้าวหอม 100%" : ""}
+                sale={lang === "th" ? "500 บาท" : "500 Bath"}
+                price={lang === "th" ? "550 บาท" : "550 Bath"}
+              />
+            </Slider>
+          </div>
+        </section>
+
         <Footer />
       </Fragment>
     </div>

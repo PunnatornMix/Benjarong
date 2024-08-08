@@ -44,7 +44,7 @@ function MenuNavBar({ children }) {
       <section className=" mx-auto h-32 w-full flex justify-around items-center">
         <img src="/images/logo/band.png" className="h-full py-6" />
         <div className="flex">
-          <label className="input input-bordered rounded-[40px] w-96 rounded-r-none border-brown1 flex items-center gap-2">
+          <label className="input input-bordered bg-transparent  rounded-[40px] w-96 rounded-r-none border-brown1 flex items-center gap-2">
             <input
               type="text"
               className="grow "
@@ -53,7 +53,7 @@ function MenuNavBar({ children }) {
               }
             />
           </label>
-          <select className="select select-bordered border-l-0 border-brown1 w-full rounded-none max-w-40">
+          <select className="select select-bordered border-l-0 border-brown1 w-full bg-transparent rounded-none max-w-40">
             <option disabled selected>
               {lang === "th" ? "หมวดหมู่ทั้งหมด" : "All Categories"}
             </option>
