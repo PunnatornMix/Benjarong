@@ -263,6 +263,7 @@ const Home = () => {
                 sale={lang === "th" ? "200 บาท" : "200 Bath"}
                 price={lang === "th" ? "250 บาท" : "250 Bath"}
                 value={3}
+                day={"5"}
               />
               <ProductList
                 src="/images/Banner/Hero/WhiteRice.png"
@@ -270,6 +271,7 @@ const Home = () => {
                 sale={lang === "th" ? "300 บาท" : "300 Bath"}
                 price={lang === "th" ? "350 บาท" : "350 Bath"}
                 value={4}
+                day={"4"}
               />
               <ProductList
                 src="/images/Banner/Hero/HealthyRice.png"
@@ -277,13 +279,15 @@ const Home = () => {
                 sale={lang === "th" ? "400 บาท" : "400 Bath"}
                 price={lang === "th" ? "450 บาท" : "450 Bath"}
                 value={4.5}
+                day={"2.2"}
               />
               <ProductList
                 src="/images/Banner/Hero/ThaiAromaticRice.png"
                 title={lang === "th" ? "ข้าวหอม 100%" : ""}
                 sale={lang === "th" ? "500 บาท" : "500 Bath"}
                 price={lang === "th" ? "550 บาท" : "550 Bath"}
-                value={4}
+                value={4.5}
+                day={"3.5"}
               />
             </Slider>
           </div>

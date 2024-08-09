@@ -72,22 +72,28 @@ function Footer() {
           <h2>Quick links</h2>
           <div className="grid grid-cols-2 ">
             {lang === "th" ? "" : ""}
-            <h5 className="font-light">{lang === "th" ? "" : "About us"}</h5>
             <h5 className="font-light">
-              {lang === "th" ? "" : "h5 rivacy h5 olicy"}
+              {lang === "th" ? "เกี่ยวกับเรา" : "About us"}
             </h5>
             <h5 className="font-light">
-              {lang === "th" ? "" : "Cookie h5 olicy"}
+              {lang === "th" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy"}
             </h5>
             <h5 className="font-light">
-              {lang === "th" ? "" : "Terms and Conditions"}
+              {lang === "th" ? "นโยบายคุกกี้" : "Cookie Policy"}
             </h5>
             <h5 className="font-light">
-              {lang === "th" ? "" : "h5 urchasing h5 olicy"}
+              {lang === "th" ? "ข้อกำหนดและเงื่อนไข" : "Terms and Conditions"}
             </h5>
-            <h5 className="font-light">{lang === "th" ? "" : "Contact us"}</h5>
-            <h5 className="font-light">{lang === "th" ? "" : "Review"}</h5>
-            <h5 className="font-light">{lang === "th" ? "" : "Event"}</h5>
+            <h5 className="font-light">
+              {lang === "th" ? "นโยบายการซื้อ" : "Purchasing Policy"}
+            </h5>
+            <h5 className="font-light">
+              {lang === "th" ? "ติดต่อเรา" : "Contact us"}
+            </h5>
+            <h5 className="font-light">{lang === "th" ? "รีวิว" : "Review"}</h5>
+            <h5 className="font-light">
+              {lang === "th" ? "กิจกรรม" : "Event"}
+            </h5>
           </div>
         </div>
       </div>
