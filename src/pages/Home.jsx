@@ -16,6 +16,7 @@ import Footer from "../components/Footer/Footer";
 import CategoriesList from "../components/CategoriesList/CategoriesList";
 import OfferList from "../components/OfferList/OfferList";
 import ProductList from "../components/ProductList/ProductList";
+import Subscibe from "../components/Subscibe/Subscibe";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
@@ -323,6 +324,9 @@ const Home = () => {
             </Slider>
           </div>
         </section>
+
+        {/*------- Subscribe our newsletter ------*/}
+        <Subscibe />
 
         <Footer />
       </Fragment>

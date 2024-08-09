@@ -9,6 +9,7 @@ export default {
         HoverBrown: "#3f0301",
         brown: "#481210",
         brown1: "#683423",
+        brown2: "#fcfaf7",
         Lbrown: "#f8dd9d",
         Lbrown1: "#fcf4e0",
         green: "#61a402",
