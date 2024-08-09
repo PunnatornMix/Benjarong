@@ -120,6 +120,10 @@
     transform-origin: center;
     transform: scale(1.06, 1.06);
   }
+
+  .footer {
+    @apply py-10 px-6;
+  }
 }
 
 /* 2xl */

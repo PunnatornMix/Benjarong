@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LocationIcon, PhoneIcon, SearchIcon } from "../icons/icons";
+import HoverItem from "./HoverItem";
 
 window.addEventListener("scroll", function () {
   const scrollPosition = window.scrollY;
@@ -68,21 +69,38 @@ function MenuNavBar({ children }) {
           </div>
         </div>
         <div className="flex gap-6">
-          <div className="flex justify-center items-center gap-2">
-            <LocationIcon />
+          <a
+            className="flex justify-center items-center gap-2"
+            href="https://maps.app.goo.gl/SQbYXdJpsX7mqNvu6"
+            target="_blank"
+          >
+            <HoverItem
+              icon={"LocationIcon"}
+              content={
+                lang === "th"
+                  ? "ถนนบางนา-ตราด, สมุทรปราการ"
+                  : "Bangna-Trad Road, Samut Prakan"
+              }
+            >
+              {/* <LocationIcon className={"w-[30px]"} /> */}
 
-            <h5>
-              {lang === "th"
-                ? "ถนนบางนา-ตราด, สมุทรปราการ"
-                : "Bangna-Trad Road, Samut Prakan"}
-            </h5>
-          </div>
+              <h5>
+                {lang === "th"
+                  ? "ถนนบางนา-ตราด, สมุทรปราการ"
+                  : "Bangna-Trad Road, Samut Prakan"}
+              </h5>
+            </HoverItem>
+          </a>
 
-          <div className="flex justify-center items-center gap-2">
-            <PhoneIcon />
-
-            <h5>023 120151</h5>
-          </div>
+          <a
+            className="flex justify-center items-center gap-2"
+            href="tel:023120151"
+            target="_blank"
+          >
+            <HoverItem icon={"PhoneIcon"} content={"023 120151"}>
+              {/* <PhoneIcon /> */}
+            </HoverItem>
+          </a>
           <div className="form">{children}</div>
         </div>
       </section>
