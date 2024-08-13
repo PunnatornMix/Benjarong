@@ -21,7 +21,6 @@ import Subscibe from "../components/Subscibe/Subscibe";
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
   const { t, i18n } = useTranslation();
-  const [isHover, setIsHover] = useState(false);
 
   const CategoriesSettings = {
     dots: true,
@@ -41,13 +40,6 @@ const Home = () => {
     slidesToScroll: 1,
   };
 
-  const handleMouseEnter = () => {
-    setIsHover(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHover(false);
-  };
   useEffect(() => {
     const storedLang = localStorage.getItem("i18nextLng");
     console.log("storedLang", storedLang);
@@ -64,9 +56,9 @@ const Home = () => {
     <div id="home">
       <Fragment>
         <SEO
-          title="Home"
+          title="HomePage"
           description="A description of the page"
-          name="Company name"
+          name="Benjarong"
           type="articlec"
           keywords="HTML, CSS, JavaScript"
         />
@@ -137,7 +129,11 @@ const Home = () => {
                 <p>
                   {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
                 </p>
-                <Button color={"brown"} outline={"outline"} />
+                <Button
+                  href="/product-detail"
+                  color={"brown"}
+                  outline={"outline"}
+                />
               </div>
               <img
                 src="/images/Banner/Hero/Jasmine.png"

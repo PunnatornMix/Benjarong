@@ -132,7 +132,7 @@ function MenuNavBar({ children }) {
               href="/contact-us"
               className={`menuHover ${selectMenu(contact)}`}
             >
-              {lang === "th" ? "ติดต่อ" : "Contact Us"}
+              {lang === "th" ? "รีวิว" : "Review"}
             </a>
           </div>
         </div>

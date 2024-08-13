@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function Button({ className, color, outline }) {
+function Button({ className, color, outline, href }) {
   // const HoverColor = colors == "brown" ? "hover:bg-brown1" : "";
   function HoverColor(color, outline) {
     if (color === "brown" && outline !== "outline") {
@@ -22,7 +22,9 @@ function Button({ className, color, outline }) {
         outline
       )}  ${Outline(color, outline)} ${className}`}
     >
-      <p className={` `}>{lang === "th" ? "สั่งซื้อ" : "Shop Now"}</p>
+      <a href={href} className={` `}>
+        {lang === "th" ? "สั่งซื้อ" : "Shop Now"}
+      </a>
     </button>
   );
 }

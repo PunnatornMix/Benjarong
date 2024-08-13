@@ -1,16 +1,17 @@
 import React, { Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
+import AboutUs from "../pages/AboutUs";
+import ProductDatail from "../pages/ProductDatail";
 
 const AppRouters = () => (
   <Fragment>
     <Routes>
       <Route path="/" exact element={<Home />} />
 
-      {/* <Route path="/about-us" exact element={<AboutUs />} />
-      <Route path="/product-list" exact element={<ProductList />} />
-      <Route path="/news-activity" exact element={<News />} />
-      <Route path="/contact-us" exact element={<ContactUs />} /> */}
+      <Route path="/about-us" exact element={<AboutUs />} />
+      {/* <Route path="/our-product" exact element={<OurProduct />} /> */}
+      <Route path="/product-detail" exact element={<ProductDatail />} />
 
       {/* <Route path="/shareholding/:mainpage?" exact element={<Shareholding />} /> */}
       {/* <Route path="*" exact element={<NotFound />} /> */}
