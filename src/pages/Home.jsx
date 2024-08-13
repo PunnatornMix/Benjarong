@@ -150,6 +150,7 @@ const Home = () => {
                 }
                 src="/images/Banner/Hero/WhiteRice.png"
                 className="bg-gra-gray"
+                href="/product-detail"
               />
               {lang === "th" ? "" : ""}
               <HeroList
@@ -157,6 +158,7 @@ const Home = () => {
                 content={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
                 src="/images/Banner/Hero/HealthyRice.png"
                 className="bg-gra-red"
+                href="/product-detail"
               />
               <HeroList
                 title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"}
@@ -165,6 +167,7 @@ const Home = () => {
                 }
                 src="/images/Banner/Hero/ThaiAromaticRice.png"
                 className=" bg-gra-purple"
+                href="/product-detail"
               />
               <HeroList
                 title={
@@ -175,6 +178,7 @@ const Home = () => {
                 content={lang === "th" ? "ข้าวหอมผสม" : "Mixed Rice"}
                 src="/images/Banner/Hero/MixedRice.png"
                 className="bg-gra-green "
+                href="/product-detail"
               />
             </div>
           </div>

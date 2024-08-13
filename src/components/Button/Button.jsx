@@ -16,16 +16,16 @@ function Button({ className, color, outline, href }) {
 
   const lang = localStorage.getItem("i18nextLng");
   return (
-    <button
-      className={`btn rounded-3xl w-32 min-h-10 h-10  ${HoverColor(
-        color,
-        outline
-      )}  ${Outline(color, outline)} ${className}`}
-    >
-      <a href={href} className={` `}>
+    <a href={href} className={` `}>
+      <button
+        className={`btn rounded-3xl w-32 min-h-10 h-10  ${HoverColor(
+          color,
+          outline
+        )}  ${Outline(color, outline)} ${className}`}
+      >
         {lang === "th" ? "สั่งซื้อ" : "Shop Now"}
-      </a>
-    </button>
+      </button>
+    </a>
   );
 }
 

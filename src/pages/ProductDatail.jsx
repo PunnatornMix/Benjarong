@@ -113,7 +113,7 @@ const ProductDatail = () => {
         {lang === "th" ? "" : ""}
 
         <section className="bg-Lbrown2">
-          <div className="flex container gap-8 mx-auto pt-10 ">
+          <div className="flex container gap-8 mx-auto py-10 ">
             {/* <img src="Jasmine.png" /> */}
             <ImageGallery
               items={images}
@@ -121,6 +121,7 @@ const ProductDatail = () => {
               showFullscreenButton={false}
               showPlayButton={false}
               showNav={false}
+              slideDuration={1000}
             />
             <div>
               <h3 className="font-semibold">

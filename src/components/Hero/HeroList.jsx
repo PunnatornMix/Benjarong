@@ -1,6 +1,6 @@
 import Button from "../Button/Button";
 
-function HeroList({ title, content, src, className }) {
+function HeroList({ title, content, src, className, href }) {
   const lang = localStorage.getItem("i18nextLng");
 
   return (
@@ -12,7 +12,7 @@ function HeroList({ title, content, src, className }) {
           <h1 className="leading-10">{title}</h1>
           <p> {content}</p>
           {/* <Button className="text-white border-white" /> */}
-          <Button color="brown" outline="outline" />
+          <Button color="brown" outline="outline" href={href} />
         </div>
         <div
           style={{
