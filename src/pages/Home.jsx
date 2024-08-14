@@ -133,6 +133,7 @@ const Home = () => {
                   href="/product-detail"
                   color={"brown"}
                   outline={"outline"}
+                  text={lang === "th" ? "สั่งซื้อ" : "Shop Now"}
                 />
               </div>
               <img

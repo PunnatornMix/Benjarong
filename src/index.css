@@ -109,6 +109,10 @@
     @apply border-b-[2.5px] w-fit mx-auto;
     letter-spacing: 0.075em;
   }
+  .navActive {
+    @apply border-b-[2px] w-fit   border-brown1 text-brown1;
+    letter-spacing: 0.075em;
+  }
   .hero_animate {
     transition-property: transform;
     transition-duration: 0.5s;
@@ -124,6 +128,10 @@
 
   .footer {
     @apply py-10 px-6;
+  }
+
+  .navSubpage {
+    @apply font-medium p-2;
   }
 }
 

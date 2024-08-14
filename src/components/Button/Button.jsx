@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-
-function Button({ className, color, outline, href }) {
+function Button({ className, color, outline, href, text }) {
   // const HoverColor = colors == "brown" ? "hover:bg-brown1" : "";
   function HoverColor(color, outline) {
     if (color === "brown" && outline !== "outline") {
-      return `hover:bg-brown border-brown bg-brown1 text-white`;
+      return `hover:bg-brown border-brown bg-brown1 text-white `;
+    } else if (color === "gray" && outline !== "outline") {
+      return `bg-gray-100 hover:bg-gray-200 text-black border-none`;
     }
   }
 
@@ -18,12 +18,12 @@ function Button({ className, color, outline, href }) {
   return (
     <a href={href} className={` `}>
       <button
-        className={`btn rounded-3xl w-32 min-h-10 h-10  ${HoverColor(
+        className={`btn rounded-3xl w-32 min-h-10 h-10 hover:tracking-wider ${HoverColor(
           color,
           outline
         )}  ${Outline(color, outline)} ${className}`}
       >
-        {lang === "th" ? "สั่งซื้อ" : "Shop Now"}
+        {text || (lang === "th" ? "สั่งซื้อ" : "Shop Now")}
       </button>
     </a>
   );

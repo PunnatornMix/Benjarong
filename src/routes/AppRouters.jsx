@@ -11,7 +11,11 @@ const AppRouters = () => (
 
       <Route path="/about-us" exact element={<AboutUs />} />
       {/* <Route path="/our-product" exact element={<OurProduct />} /> */}
-      <Route path="/product-detail" exact element={<ProductDatail />} />
+      <Route
+        path="/product-detail/:subpage?"
+        exact
+        element={<ProductDatail />}
+      />
 
       {/* <Route path="/shareholding/:mainpage?" exact element={<Shareholding />} /> */}
       {/* <Route path="*" exact element={<NotFound />} /> */}
