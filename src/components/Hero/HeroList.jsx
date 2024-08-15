@@ -14,14 +14,15 @@ function HeroList({ title, content, src, className, href, text }) {
           {/* <Button className="text-white border-white" /> */}
           <Button color="brown" outline="outline" href={href} text={text} />
         </div>
-        <div
+        <a
+          href="/product-detail"
           style={{
             backgroundImage: `url(${src})`,
             backgroundSize: "125%",
             backgroundPosition: "right 50% bottom 50% ",
           }}
-          className="h-[400px] w-full self-center mx-auto bg-no-repeat hover:hero_animate"
-        ></div>
+          className="h-[400px] w-full self-center mx-auto bg-no-repeat hover:hero_animate cursor-pointer"
+        ></a>
       </div>
     </>
   );

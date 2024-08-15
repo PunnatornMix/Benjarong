@@ -1,7 +1,6 @@
 import React from "react";
 
 function ProductItem({ src, title, content }) {
-  const lang = localStorage.getItem("i18nextLng");
   return (
     <div className="flex gap-20">
       <img src={src} className="h-[400px]" />

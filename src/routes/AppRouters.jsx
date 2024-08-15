@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import ProductDatail from "../pages/ProductDatail";
+import OurProduct from "../pages/OurProduct";
 
 const AppRouters = () => (
   <Fragment>
@@ -10,7 +11,7 @@ const AppRouters = () => (
       <Route path="/" exact element={<Home />} />
 
       <Route path="/about-us" exact element={<AboutUs />} />
-      {/* <Route path="/our-product" exact element={<OurProduct />} /> */}
+      <Route path="/our-product" exact element={<OurProduct />} />
       <Route
         path="/product-detail/:subpage?"
         exact

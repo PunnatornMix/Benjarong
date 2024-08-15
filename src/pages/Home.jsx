@@ -17,6 +17,7 @@ import CategoriesList from "../components/CategoriesList/CategoriesList";
 import OfferList from "../components/OfferList/OfferList";
 import ProductList from "../components/ProductList/ProductList";
 import Subscibe from "../components/Subscibe/Subscibe";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
@@ -136,10 +137,12 @@ const Home = () => {
                   text={lang === "th" ? "สั่งซื้อ" : "Shop Now"}
                 />
               </div>
-              <img
-                src="/images/Banner/Hero/Jasmine.png"
-                className="h-full self-end mx-auto  hover:hero1animate "
-              />
+              <a href="/product-detail" className="h-full">
+                <img
+                  src="/images/Banner/Hero/Jasmine.png"
+                  className="h-full self-end mx-auto hover:hero1animate cursor-pointer"
+                />
+              </a>
             </div>
             <div className="grid grid-cols-2 ">
               <HeroList
@@ -255,7 +258,7 @@ const Home = () => {
           <h1 className="my-4">
             {lang === "th" ? "สินค้าลดราคาวันนี้" : "Deals Of The Day"}
           </h1>
-          <div className=" image-slider-container ">
+          <div className="image-slider-container">
             <Slider {...ProductSettings}>
               <ProductList
                 src="/images/Banner/Hero/Jasmine.png"

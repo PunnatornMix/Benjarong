@@ -28,7 +28,7 @@ function MenuNavBar({ children }) {
   const home = path === "/" ? true : false;
   const about = path === "/about-us" ? true : false;
 
-  const product = path === "/product-list" ? true : false;
+  const product = path === "/our-product" ? true : false;
   const news = path === "/news-activity" ? true : false;
   const contact = path === "/contact-us" ? true : false;
 
@@ -116,7 +116,7 @@ function MenuNavBar({ children }) {
               {lang === "th" ? "รู้จักเรา " : "About Us"}
             </a>
             <a
-              href="/product-list"
+              href="/our-product"
               className={`menuHover ${selectMenu(product)}`}
             >
               {lang === "th" ? "ผลิตภัณฑ์ " : "Our Products"}

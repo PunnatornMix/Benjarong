@@ -19,7 +19,7 @@ function ProductList({ src, title, sale, price, value, day, content }) {
       // Render a countdown
       return (
         <div className="flex -translate-y-2 gap-1 mx-auto justify-center">
-          <div className="border w-[60px] text-center py-1  bg-Lbrown2">
+          <div className="border w-[60px] text-center py-1 bg-Lbrown2">
             <h3 className="text-brown1">0{days}</h3>
             <p className="font-light text-gray-500 text-[16px]">Days</p>
           </div>
@@ -45,15 +45,18 @@ function ProductList({ src, title, sale, price, value, day, content }) {
   };
 
   return (
-    <div className="border rounded-lg mx-3">
-      <img src={src} className="mx-auto h-72" />
+    <div className=" border rounded-md mx-3 min-w-[280px] bg-white hover:border-brown1">
+      <img
+        src={src}
+        className="mx-auto h-[clamp(200px,20vw,280px)] transition hover:scale-105 duration-400 cursor-pointer"
+      />
       <Countdown
         date={Date.now() + day * 1000 * 60 * 60 * 24}
         renderer={renderer}
       >
         {/* <Completionist /> */}
       </Countdown>
-      <div className="flex flex-col pl-10 py-4 text- gap-1">
+      <div className="flex flex-col pl-10 py-4 text- gap-1 ">
         <h3 className="font-[500]"> {title}</h3>
         <Rating
           name="text-feedback"

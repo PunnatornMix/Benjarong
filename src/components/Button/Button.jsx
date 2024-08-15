@@ -16,7 +16,7 @@ function Button({ className, color, outline, href, text }) {
 
   const lang = localStorage.getItem("i18nextLng");
   return (
-    <a href={href} className={` `}>
+    <a href={href} className={` ${className}`}>
       <button
         className={`btn rounded-3xl w-32 min-h-10 h-10 hover:tracking-wider ${HoverColor(
           color,
