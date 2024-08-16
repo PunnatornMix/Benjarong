@@ -11,23 +11,142 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../components/Footer/Footer";
 
 import Subscibe from "../components/Subscibe/Subscibe";
-import ProductItem from "../components/ProductList/ProductItem";
 import ProductList from "../components/ProductList/ProductList";
 
 const OurProduct = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   const { t, i18n } = useTranslation();
 
+  const productList = [
+    <ProductList
+      src="/images/Banner/Hero/Jasmine.png"
+      category="Jasmine Rice"
+      title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
+      price={lang === "th" ? "200 บาท" : "200 Bath"}
+      sale={lang === "th" ? "250 บาท" : "250 Bath"}
+      value={3}
+      // day={"5"}
+    />,
+    <ProductList
+      src="/images/Banner/Hero/WhiteRice.png"
+      category="White Rice, Sao Hai Rice"
+      title={lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"}
+      price={lang === "th" ? "300 บาท" : "300 Bath"}
+      sale={lang === "th" ? "350 บาท" : "350 Bath"}
+      value={4}
+      // day={"4"}
+    />,
+    <ProductList
+      src="/images/Banner/Hero/HealthyRice.png"
+      category="Healthy Rice"
+      title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
+      price={lang === "th" ? "400 บาท" : "400 Bath"}
+      sale={lang === "th" ? "450 บาท" : "450 Bath"}
+      value={4.5}
+      // day={"2.2"}
+    />,
+    <ProductList
+      title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Thai Aromatic Rice 100%"}
+      category="Pathumthani Rice"
+      src={"/images/Banner/Hero/ThaiAromaticRice.png"}
+      price={lang === "th" ? "500 บาท" : "500 Bath"}
+      // sale={lang === "th" ? "550 บาท" : "550 Bath"}
+      value={4.5}
+      // day={"2.2"}
+    />,
+    <ProductList
+      category="Other quality products"
+      title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : "Mixed Rice"}
+      src={"/images/Banner/Hero/MixedRice.png"}
+      price={lang === "th" ? "200 บาท" : "500 Bath"}
+      // sale={lang === "th" ? "550 บาท" : "550 Bath"}
+      value={4.5}
+      // day={"2.2"}
+    />,
+  ];
+
   useEffect(() => {
+    // Filter products when lang or category changes
+    setFilteredProducts(
+      selectedCategory
+        ? productList.filter(
+            (product) => product.props.category === selectedCategory
+          )
+        : productList
+    );
+  }, [lang, selectedCategory]);
+
+  useEffect(() => {
+    // Sync language with i18n
     const storedLang = localStorage.getItem("i18nextLng");
-    console.log("storedLang", storedLang);
-  }, [i18n]);
+    if (storedLang !== lang) {
+      setLang(storedLang);
+    }
+  }, [i18n, lang]);
 
   const handleLanguageChange = (e) => {
     const newLang = e.target.value;
     i18n.changeLanguage(newLang);
     localStorage.setItem("i18nextLng", newLang);
     setLang(newLang);
+  };
+
+  // const productList = [
+  //   {
+  //     Jasmine: {
+  //       src: "/images/Banner/Hero/Jasmine.png",
+  //       title: lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "Sao Hai Rice (100%)",
+  //       price: lang === "th" ? "200 บาท" : "200 Bath",
+  //       sale: lang === "th" ? "250 บาท" : "250 Bath",
+  //       value: `3`,
+  //     },
+  //   },
+  //   {
+  //     WhiteRice: {
+  //       src: "/images/Banner/Hero/WhiteRice.png",
+  //       title: lang === "th" ? "ข้าวเสาไห้ 100%" : "",
+  //       price: lang === "th" ? "300 บาท" : "300 Bath",
+  //       sale: lang === "th" ? "350 บาท" : "350 Bath",
+  //       value: `4`,
+  //     },
+  //   },
+  //   {
+  //     HealthyRice: {
+  //       src: "/images/Banner/Hero/HealthyRice.png",
+  //       title: lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice",
+  //       price: lang === "th" ? "200 บาท" : "200 Bath",
+  //       sale: lang === "th" ? "250 บาท" : "250 Bath",
+  //       value: `3`,
+  //     },
+  //   },
+  //   {
+  //     HealthyRice: {
+  //       srcL: "/images/Banner/Hero/ThaiAromaticRice.png",
+  //       title: lang === "th" ? "ข้าวหอมปทุมธานี" : "Thai Aromatic Rice 100%",
+  //       price: lang === "th" ? "200 บาท" : "200 Bath",
+  //       sale: lang === "th" ? "250 บาท" : "250 Bath",
+  //       value: `3`,
+  //     },
+  //   },
+  //   {
+  //     MixedRice: {
+  //       srcL: "/images/Banner/Hero/MixedRice.png",
+  //       title: lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : "Mixed Rice",
+  //       price: lang === "th" ? "200 บาท" : "200 Bath",
+  //       sale: lang === "th" ? "250 บาท" : "250 Bath",
+  //       value: `3`,
+  //     },
+  //   },
+  // ];
+
+  const handleOnClick = (category) => {
+    // const filtered = productList.filter(
+    //   (product) => product.category === category
+    // );
+    setSelectedCategory(category);
   };
 
   return (
@@ -106,34 +225,59 @@ const OurProduct = () => {
                     {lang === "th" ? "ประเภทสินค้า" : "Categories"}
                   </h3>
                 </div>
-                <LogoNavBar
-                  src="/images/Banner/Hero/Jasmine.png"
-                  content={lang === "th" ? "ข้าวขาวหอมมะลิ" : "Jasmine Rice"}
-                />
-                <LogoNavBar
-                  src="/images/Banner/Hero/WhiteRice.png"
-                  content={
-                    lang === "th" ? "ข้าวขาวเสาไห้" : "White Rice, Sao Hai Rice"
-                  }
-                />
-                <LogoNavBar
-                  src="/images/Banner/Hero/HealthyRice.png"
-                  content={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
-                />
-                <LogoNavBar
-                  src="/images/Banner/Hero/ThaiAromaticRice.png"
-                  content={
-                    lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"
-                  }
-                />
-                <LogoNavBar
-                  src="/images/Banner/Hero/MixedRice.png"
-                  content={
-                    lang === "th"
-                      ? "ผลิตภัณฑ์คุณภาพอื่น"
-                      : "Other quality products"
-                  }
-                />
+                <div
+                  onClick={() => setFilteredProducts(productList)}
+                  className="flex items-center gap-4 cursor-pointer"
+                >
+                  <i class="fa-solid fa-list mt-1 ml-1"></i>
+                  <p>{lang === "th" ? "สินค้าทั้งหมด" : "All Product"}</p>
+                </div>
+                <div
+                  onClick={() => handleOnClick("Jasmine Rice")}
+                  value="Jasmine Rice"
+                >
+                  <LogoNavBar
+                    src="/images/Banner/Hero/Jasmine.png"
+                    content={lang === "th" ? "ข้าวขาวหอมมะลิ" : "Jasmine Rice"}
+                  />
+                </div>
+                <div
+                  onClick={() => handleOnClick("White Rice, Sao Hai Rice")}
+                  value="White Rice, Sao Hai Rice"
+                >
+                  <LogoNavBar
+                    src="/images/Banner/Hero/WhiteRice.png"
+                    content={
+                      lang === "th"
+                        ? "ข้าวขาวเสาไห้"
+                        : "White Rice, Sao Hai Rice"
+                    }
+                  />
+                </div>
+                <div onClick={() => handleOnClick("Healthy Rice")}>
+                  <LogoNavBar
+                    src="/images/Banner/Hero/HealthyRice.png"
+                    content={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
+                  />
+                </div>
+                <div onClick={() => handleOnClick("Pathumthani Rice")}>
+                  <LogoNavBar
+                    src="/images/Banner/Hero/ThaiAromaticRice.png"
+                    content={
+                      lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"
+                    }
+                  />
+                </div>
+                <div onClick={() => handleOnClick("Other quality products")}>
+                  <LogoNavBar
+                    src="/images/Banner/Hero/MixedRice.png"
+                    content={
+                      lang === "th"
+                        ? "ผลิตภัณฑ์คุณภาพอื่น"
+                        : "Other quality products"
+                    }
+                  />
+                </div>
               </div>
               <div className="flex flex-col  gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border">
                 <div className="border-b-2 ">
@@ -148,32 +292,8 @@ const OurProduct = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-              <ProductList
-                src="/images/Banner/Hero/Jasmine.png"
-                title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
-                // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
-                sale={lang === "th" ? "200 บาท" : "200 Bath"}
-                price={lang === "th" ? "250 บาท" : "250 Bath"}
-                value={3}
-                // day={"5"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/WhiteRice.png"
-                title={lang === "th" ? "ข้าวเสาไห้ 100%" : ""}
-                sale={lang === "th" ? "300 บาท" : "300 Bath"}
-                price={lang === "th" ? "350 บาท" : "350 Bath"}
-                value={4}
-                // day={"4"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/HealthyRice.png"
-                title={lang === "th" ? "ข้าวแดงหอม" : ""}
-                sale={lang === "th" ? "400 บาท" : "400 Bath"}
-                price={lang === "th" ? "450 บาท" : "450 Bath"}
-                value={4.5}
-                // day={"2.2"}
-              />
+            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 ">
+              {filteredProducts.map((product, index) => product)}
             </div>
           </div>
         </section>

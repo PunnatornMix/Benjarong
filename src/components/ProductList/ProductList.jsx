@@ -3,13 +3,38 @@ import Button from "../Button/Button";
 import { Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import Countdown from "react-countdown";
+import { Link } from "react-router-dom";
 
 function ProductList({ src, title, sale, price, value, day, content }) {
   const lang = localStorage.getItem("i18nextLng");
-  console.log("day", day);
   const Completionist = () => (
     <span className="text-red-500">Out Off Time!</span>
   );
+
+  // console.log(price.split(" ")[0]);
+  // console.log(sale.split(" ")[0]);
+  const percentSale = (sale, price) => {
+    if (sale && price) {
+      // แปลงค่า sale และ price จากสตริงเป็นตัวเลข โดยการเอาตัวเลขออกจากสตริง
+      const saleValue = parseFloat(sale.split(" ")[0]);
+      const priceValue = parseFloat(price.split(" ")[0]);
+
+      // ตรวจสอบว่าค่าที่ได้ไม่เป็น NaN และราคามีค่าไม่เป็นศูนย์
+      if (!isNaN(saleValue) && !isNaN(priceValue) && saleValue !== 0) {
+        // คำนวณเปอร์เซ็นต์ส่วนลด
+        const percent = Math.round(
+          ((saleValue - priceValue) / saleValue) * 100
+        );
+        return percent;
+      }
+    }
+    return false;
+  };
+  //   ((sale.split(" ")[0] - price.split(" ")[0]) / sale.split(" ")[0]) *
+  //   100
+  // ).toFixed(2);
+
+  // console.log("percent", percent);
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -45,11 +70,20 @@ function ProductList({ src, title, sale, price, value, day, content }) {
   };
 
   return (
-    <div className=" border rounded-md mx-3 min-w-[280px] bg-white hover:border-brown1">
-      <img
-        src={src}
-        className="mx-auto h-[clamp(200px,20vw,280px)] transition hover:scale-105 duration-400 cursor-pointer"
-      />
+    <div className="relative border rounded-md mx-3 min-w-[280px] border-Lbrown bg-white hover:border-brown1 pt-4 my-3">
+      {percentSale(sale, price) ? (
+        <h4 className="bg-brown1 w-fit  text-white py-1 px-2 absolute top-4 left-4  rounded-md">
+          {percentSale(sale, price)}% Off
+        </h4>
+      ) : (
+        <></>
+      )}
+      <Link to="/product-detail">
+        <img
+          src={src}
+          className="mx-auto h-[clamp(200px,20vw,280px)] transition hover:scale-105 duration-400 cursor-pointer"
+        />
+      </Link>
       <Countdown
         date={Date.now() + day * 1000 * 60 * 60 * 24}
         renderer={renderer}
@@ -68,8 +102,8 @@ function ProductList({ src, title, sale, price, value, day, content }) {
 
         <h5>{lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}</h5>
         <div className="flex gap-5">
-          <p className="text-green">{sale}</p>
-          <p className="text-red-500 line-through">{price}</p>
+          <p className="text-green">{price}</p>
+          <p className="text-red-500 line-through">{sale}</p>
         </div>
         <Button color={"brown"} outline={"outline"} className={"mt-3"} />
       </div>

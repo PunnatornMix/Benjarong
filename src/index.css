@@ -21,6 +21,10 @@
     font-size: clamp(18px, 3vw, 20px);
     font-weight: medium;
   }
+  h4 {
+    font-size: clamp(12px, 3vw, 16px);
+    font-weight: medium;
+  }
   h5 {
     font-size: clamp(10px, 3vw, 14px);
     font-weight: medium;

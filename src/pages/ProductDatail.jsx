@@ -38,6 +38,24 @@ const ProductDatail = () => {
     subpage = "description";
   }
 
+  const percentSale = (sale, price) => {
+    if (sale && price) {
+      // แปลงค่า sale และ price จากสตริงเป็นตัวเลข โดยการเอาตัวเลขออกจากสตริง
+      const saleValue = parseFloat(sale.split(" ")[0]);
+      const priceValue = parseFloat(price.split(" ")[0]);
+
+      // ตรวจสอบว่าค่าที่ได้ไม่เป็น NaN และราคามีค่าไม่เป็นศูนย์
+      if (!isNaN(saleValue) && !isNaN(priceValue) && saleValue !== 0) {
+        // คำนวณเปอร์เซ็นต์ส่วนลด
+        const percent = Math.round(
+          ((saleValue - priceValue) / saleValue) * 100
+        );
+        return percent;
+      }
+    }
+    return false;
+  };
+
   const images = [
     {
       original: "/images/product/Jasmine.png",
@@ -199,6 +217,9 @@ const ProductDatail = () => {
                 <h2 className="text-red-500 line-through">
                   {lang === "th" ? "250 บาท" : ""}
                 </h2>
+                <h4 className="bg-brown1 w-fit  text-white py-1 px-2  top-4 left-4  rounded-md">
+                  {percentSale("185 บาท", "250 บาท")}% Off
+                </h4>
               </div>
               <a
                 className="flex gap-6 py-2 items-center hover:text-red-500 hover:tracking-wider"
