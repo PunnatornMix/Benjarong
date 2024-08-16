@@ -100,7 +100,9 @@ function ProductList({ src, title, sale, price, value, day, content }) {
           emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
         />
 
-        <h5>{lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}</h5>
+        <h5>
+          {lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : "Sold by Benjarong"}
+        </h5>
         <div className="flex gap-5">
           <p className="text-green">{price}</p>
           <p className="text-red-500 line-through">{sale}</p>

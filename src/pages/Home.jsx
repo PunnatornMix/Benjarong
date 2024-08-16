@@ -194,23 +194,29 @@ const Home = () => {
           <div className="h-96 image-slider-container mt-8">
             <Slider {...CategoriesSettings}>
               <CategoriesList
-                title={lang === "th" ? "ข้าวขาวหอมมะลิ" : ""}
+                title={lang === "th" ? "ข้าวขาวหอมมะลิ" : "Jasmine Rice"}
                 src={"/images/Banner/Hero/Jasmine.png"}
               />
               <CategoriesList
-                title={lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+                title={
+                  lang === "th" ? "ข้าวขาวเสาไห้" : "White Rice, Sao Hai Rice"
+                }
                 src={"/images/Banner/Hero/WhiteRice.png"}
               />
               <CategoriesList
-                title={lang === "th" ? "ข้าวสุขภาพ" : ""}
+                title={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
                 src={"/images/Banner/Hero/HealthyRice.png"}
               />
               <CategoriesList
-                title={lang === "th" ? "ข้าวหอมปทุมธานี" : ""}
+                title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"}
                 src={"/images/Banner/Hero/ThaiAromaticRice.png"}
               />
               <CategoriesList
-                title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : ""}
+                title={
+                  lang === "th"
+                    ? "ผลิตภัณฑ์คุณภาพอื่น"
+                    : "Other quality products"
+                }
                 src={"/images/Banner/Hero/MixedRice.png"}
               />
             </Slider>
@@ -227,27 +233,33 @@ const Home = () => {
           </h1>
           <div className="grid grid-cols-3 gap-6">
             <OfferList
-              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              title={
+                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
+              }
               content={
                 lang === "th"
                   ? "There are many variations of passages of Lorem Ipsum available."
-                  : ""
+                  : "There are many variations of passages of Lorem Ipsum available."
               }
             />
             <OfferList
-              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              title={
+                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
+              }
               content={
                 lang === "th"
                   ? "There are many variations of passages of Lorem Ipsum available."
-                  : ""
+                  : "There are many variations of passages of Lorem Ipsum available."
               }
             />
             <OfferList
-              title={lang === "th" ? "Get 30% off on Fruit" : ""}
+              title={
+                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
+              }
               content={
                 lang === "th"
                   ? "There are many variations of passages of Lorem Ipsum available."
-                  : ""
+                  : "There are many variations of passages of Lorem Ipsum available."
               }
             />
           </div>
@@ -262,7 +274,9 @@ const Home = () => {
             <Slider {...ProductSettings}>
               <ProductList
                 src="/images/Banner/Hero/Jasmine.png"
-                title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"
+                }
                 // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
                 price={lang === "th" ? "200 บาท" : "200 Bath"}
                 sale={lang === "th" ? "250 บาท" : "250 Bath"}
@@ -271,7 +285,9 @@ const Home = () => {
               />
               <ProductList
                 src="/images/Banner/Hero/WhiteRice.png"
-                title={lang === "th" ? "ข้าวเสาไห้ 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
+                }
                 price={lang === "th" ? "300 บาท" : "300 Bath"}
                 sale={lang === "th" ? "350 บาท" : "350 Bath"}
                 value={4}
@@ -279,7 +295,7 @@ const Home = () => {
               />
               <ProductList
                 src="/images/Banner/Hero/HealthyRice.png"
-                title={lang === "th" ? "ข้าวแดงหอม" : ""}
+                title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
                 price={lang === "th" ? "400 บาท" : "400 Bath"}
                 sale={lang === "th" ? "450 บาท" : "450 Bath"}
                 value={4.5}
@@ -287,7 +303,9 @@ const Home = () => {
               />
               <ProductList
                 src="/images/Banner/Hero/ThaiAromaticRice.png"
-                title={lang === "th" ? "ข้าวหอม 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
+                }
                 price={lang === "th" ? "500 บาท" : "500 Bath"}
                 sale={lang === "th" ? "550 บาท" : "550 Bath"}
                 value={4.5}
@@ -306,26 +324,32 @@ const Home = () => {
             <Slider {...ProductSettings}>
               <ProductList
                 src="/images/Banner/Hero/Jasmine.png"
-                title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"
+                }
                 // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
                 price={lang === "th" ? "200 บาท" : "200 Bath"}
                 sale={lang === "th" ? "250 บาท" : "250 Bath"}
               />
               <ProductList
                 src="/images/Banner/Hero/WhiteRice.png"
-                title={lang === "th" ? "ข้าวเสาไห้ 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
+                }
                 price={lang === "th" ? "300 บาท" : "300 Bath"}
                 // sale={lang === "th" ? "350 บาท" : "350 Bath"}
               />
               <ProductList
                 src="/images/Banner/Hero/HealthyRice.png"
-                title={lang === "th" ? "ข้าวแดงหอม" : ""}
+                title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
                 price={lang === "th" ? "400 บาท" : "400 Bath"}
                 sale={lang === "th" ? "450 บาท" : "450 Bath"}
               />
               <ProductList
                 src="/images/Banner/Hero/ThaiAromaticRice.png"
-                title={lang === "th" ? "ข้าวหอม 100%" : ""}
+                title={
+                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
+                }
                 price={lang === "th" ? "500 บาท" : "500 Bath"}
                 // sale={lang === "th" ? "550 บาท" : "550 Bath"}
               />
