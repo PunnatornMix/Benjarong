@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import ProductDatail from "../pages/ProductDatail";
 import OurProduct from "../pages/OurProduct";
+import CSR from "../pages/CSR";
 
 const AppRouters = () => (
   <Fragment>
@@ -17,6 +18,7 @@ const AppRouters = () => (
         exact
         element={<ProductDatail />}
       />
+      <Route path="/CSR" exact element={<CSR />} />
 
       {/* <Route path="/shareholding/:mainpage?" exact element={<Shareholding />} /> */}
       {/* <Route path="*" exact element={<NotFound />} /> */}

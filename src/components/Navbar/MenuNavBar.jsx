@@ -29,7 +29,7 @@ function MenuNavBar({ children }) {
   const about = path === "/about-us" ? true : false;
 
   const product = path === "/our-product" ? true : false;
-  const news = path === "/news-activity" ? true : false;
+  const CSR = path === "/CSR" ? true : false;
   const contact = path === "/contact-us" ? true : false;
 
   function selectMenu(active) {
@@ -43,7 +43,9 @@ function MenuNavBar({ children }) {
   return (
     <>
       <section className=" mx-auto h-32 w-full flex justify-around items-center">
-        <img src="/images/logo/band.png" className="h-full py-6" />
+        <a href="/">
+          <img src="/images/logo/band.png" className="h-32 py-6" />
+        </a>
         <div className="flex">
           <label className="input input-bordered bg-transparent  rounded-[40px] w-96 rounded-r-none border-brown1 flex items-center gap-2">
             <input
@@ -122,10 +124,7 @@ function MenuNavBar({ children }) {
               {lang === "th" ? "ผลิตภัณฑ์ " : "Our Products"}
             </a>
             {lang === "th" ? "" : ""}
-            <a
-              href="/news-activity"
-              className={`menuHover ${selectMenu(news)}`}
-            >
+            <a href="/CSR" className={`menuHover ${selectMenu(CSR)}`}>
               {lang === "th" ? "กิจกรรม " : "Activities"}
             </a>
             <a

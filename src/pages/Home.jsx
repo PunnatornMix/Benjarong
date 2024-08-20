@@ -233,6 +233,7 @@ const Home = () => {
           </h1>
           <div className="grid grid-cols-3 gap-6">
             <OfferList
+              src={"/images/Banner/Hero/HealthyRice.png"}
               title={
                 lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
               }
@@ -243,6 +244,7 @@ const Home = () => {
               }
             />
             <OfferList
+              src={"/images/Banner/Hero/Jasmine.png"}
               title={
                 lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
               }
@@ -253,6 +255,7 @@ const Home = () => {
               }
             />
             <OfferList
+              src={"/images/Banner/Hero/MixedRice.png"}
               title={
                 lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
               }

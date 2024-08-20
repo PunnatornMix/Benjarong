@@ -1,15 +1,16 @@
 import React from "react";
 import Button from "../Button/Button";
 
-function OfferList({ title, content }) {
+function OfferList({ title, content, src }) {
   const lang = localStorage.getItem("i18nextLng");
 
   return (
     <div
-      className="flex flex-col items-start bg-Lbrown rounded-2xl py-6 px-10 min-h-[280px] bg-[url('/images/Fruit.png')] bg-no-repeat"
+      className="flex flex-col items-start bg-Lbrown rounded-2xl py-6 px-10 min-h-[280px] bg-no-repeat"
       style={{
+        backgroundImage: `url(${src})`,
         backgroundPosition: "right 10% bottom 10%",
-        backgroundSize: "40%",
+        backgroundSize: "33%",
       }}
     >
       <h2>{title}</h2>

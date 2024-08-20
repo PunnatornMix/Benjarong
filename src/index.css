@@ -92,9 +92,6 @@
     ) !important;
   }
 
-  .image-slider-container {
-    /* width: 400px; */
-  }
   .image-slider-container .slick-prev:before,
   .image-slider-container .slick-next:before {
     color: #481210;
@@ -143,7 +140,7 @@
     content: "";
     display: block;
     width: 55px;
-    height: 2px;
+    height: 3px;
     background: #683423;
     margin-top: 5px;
     border-radius: 200px;

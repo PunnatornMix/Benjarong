@@ -13,7 +13,7 @@ import ImageGallery from "react-image-gallery";
 import Subscibe from "../components/Subscibe/Subscibe";
 import Button from "../components/Button/Button";
 import HoverItem from "../components/Navbar/HoverItem";
-import { FacebookIcon } from "../components/icons/icons";
+import { FacebookIcon, XIcon } from "../components/icons/icons";
 import { Link, useParams } from "react-router-dom";
 import ReviewSubpage from "./Product/ReviewSubpage";
 import DescriptionSubpage from "./Product/DescriptionSubpage";
@@ -253,24 +253,42 @@ const ProductDatail = () => {
               {lang === "th" ? "" : ""}
               <div className="font-medium flex flex-col gap-1">
                 <p>{lang === "th" ? "แชร์สิ่งนี้ " : "share this "}</p>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center ">
                   <a
-                    href="https://line.me/ti/p/~@benjarongrice"
-                    target="_blank"
+                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                    class="twitter-share-button"
+                    data-show-count="false"
                   >
-                    <HoverItem icon="Line"></HoverItem>
-                  </a>
-
-                  <a
-                    href="https://www.facebook.com/Benjarongrice/"
-                    target="_blank"
-                  >
-                    <FacebookIcon
+                    <XIcon
                       className={
-                        "w-[40px] cursor-pointer fill-brown1 hover:fill-HoverBrown "
+                        "h-14 w-14  fill-[#683423] hover:fill-[#3f0301] "
                       }
-                    ></FacebookIcon>
+                    />
                   </a>
+                  <script
+                    async
+                    src="https://platform.twitter.com/widgets.js"
+                    charset="utf-8"
+                  ></script>
+
+                  <div
+                    class="fb-share-button"
+                    data-href="https://www.benjarongrice.com/th/ricecategory"
+                    data-layout=""
+                    data-size=""
+                  >
+                    <a
+                      target="_blank"
+                      href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.benjarongrice.com%2Fth%2Fricecategory&amp;src=sdkpreparse"
+                      class="fb-xfbml-parse-ignore"
+                    >
+                      <FacebookIcon
+                        className={
+                          "w-[40px] cursor-pointer fill-brown1 hover:fill-HoverBrown "
+                        }
+                      ></FacebookIcon>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

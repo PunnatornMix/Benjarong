@@ -107,7 +107,13 @@ function ProductList({ src, title, sale, price, value, day, content }) {
           <p className="text-green">{price}</p>
           <p className="text-red-500 line-through">{sale}</p>
         </div>
-        <Button color={"brown"} outline={"outline"} className={"mt-3"} />
+
+        <Button
+          href={"/product-detail"}
+          color={"brown"}
+          outline={"outline"}
+          className={"mt-3"}
+        />
       </div>
     </div>
   );

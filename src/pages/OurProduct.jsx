@@ -69,17 +69,6 @@ const OurProduct = () => {
   ];
 
   useEffect(() => {
-    // Filter products when lang or category changes
-    setFilteredProducts(
-      selectedCategory
-        ? productList.filter(
-            (product) => product.props.category === selectedCategory
-          )
-        : productList
-    );
-  }, [lang, selectedCategory]);
-
-  useEffect(() => {
     // Sync language with i18n
     const storedLang = localStorage.getItem("i18nextLng");
     if (storedLang !== lang) {
@@ -92,6 +81,24 @@ const OurProduct = () => {
     i18n.changeLanguage(newLang);
     localStorage.setItem("i18nextLng", newLang);
     setLang(newLang);
+  };
+
+  useEffect(() => {
+    // Filter products when lang or category changes
+    setFilteredProducts(
+      selectedCategory
+        ? productList.filter(
+            (product) => product.props.category === selectedCategory
+          )
+        : productList
+    );
+  }, [lang, selectedCategory]);
+
+  const handleOnClick = (category) => {
+    // const filtered = productList.filter(
+    //   (product) => product.category === category
+    // );
+    setSelectedCategory(category);
   };
 
   // const productList = [
@@ -141,13 +148,6 @@ const OurProduct = () => {
   //     },
   //   },
   // ];
-
-  const handleOnClick = (category) => {
-    // const filtered = productList.filter(
-    //   (product) => product.category === category
-    // );
-    setSelectedCategory(category);
-  };
 
   return (
     <div id="AboutUs">
@@ -219,6 +219,7 @@ const OurProduct = () => {
         <section className="bg-Lbrown2">
           <div className="container mx-auto flex justify-center py-10">
             <div className="flex flex-col gap-10">
+              {/*------ SideBar --------*/}
               <div className="flex flex-col gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border ">
                 <div className="border-b-2 ">
                   <h3 className="font-medium underline-title">
@@ -285,6 +286,7 @@ const OurProduct = () => {
                     {lang === "th" ? "แบรนด์" : "Brands"}
                   </h3>
                 </div>
+
                 <LogoNavBar
                   src="/images/logo/band.png"
                   content={lang === "th" ? "ข้าวเบญจรงค์" : "Benjarong Rice"}
