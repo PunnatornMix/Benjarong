@@ -12,6 +12,9 @@ import Footer from "../components/Footer/Footer";
 
 import Subscibe from "../components/Subscibe/Subscibe";
 import ProductList from "../components/ProductList/ProductList";
+import Button from "../components/Button/Button";
+import HeroList from "../components/Hero/HeroList";
+import Slider from "react-slick";
 
 const OurProduct = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
@@ -68,6 +71,15 @@ const OurProduct = () => {
     />,
   ];
 
+  const ProductSettings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+
   useEffect(() => {
     // Sync language with i18n
     const storedLang = localStorage.getItem("i18nextLng");
@@ -83,23 +95,21 @@ const OurProduct = () => {
     setLang(newLang);
   };
 
-  useEffect(() => {
-    // Filter products when lang or category changes
-    setFilteredProducts(
-      selectedCategory
-        ? productList.filter(
-            (product) => product.props.category === selectedCategory
-          )
-        : productList
-    );
-  }, [lang, selectedCategory]);
+  //-------------- Comment Function --------------------//
 
-  const handleOnClick = (category) => {
-    // const filtered = productList.filter(
-    //   (product) => product.category === category
-    // );
-    setSelectedCategory(category);
-  };
+  // useEffect(() => {
+  //   setFilteredProducts(
+  //     selectedCategory
+  //       ? productList.filter(
+  //           (product) => product.props.category === selectedCategory
+  //         )
+  //       : productList
+  //   );
+  // }, [lang, selectedCategory]);
+
+  // const handleOnClick = (category) => {
+  //   setSelectedCategory(category);
+  // };
 
   // const productList = [
   //   {
@@ -215,11 +225,117 @@ const OurProduct = () => {
             </FormControl>
           </Box>
         </MenuNavBar>
+        {/*----- Hero ------*/}
+        <section>
+          <div className="grid grid-cols-2">
+            <div className="bg-gra-Lbrown flex items-center pl-20  h-[680px]">
+              <div className="flex flex-col gap-4 items-start ">
+                <h1>{lang === "th" ? "ข้าวขาวหอมมะลิ" : "Jasmine Rice"}</h1>
 
-        <section className="bg-Lbrown2">
+                <p>
+                  {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
+                </p>
+                <Button
+                  href="/product-detail"
+                  color={"brown"}
+                  outline={"outline"}
+                  text={lang === "th" ? "สั่งซื้อ" : "Shop Now"}
+                />
+              </div>
+              <a href="/product-detail" className="h-full">
+                <img
+                  src="/images/Banner/Hero/Jasmine.png"
+                  className="h-full self-end mx-auto hover:hero1animate cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="grid grid-cols-2 ">
+              <HeroList
+                title={
+                  lang === "th" ? "ข้าวขาวเสาไห้" : "White Rice, Sao Hai Rice"
+                }
+                content={
+                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
+                }
+                src="/images/Banner/Hero/WhiteRice.png"
+                className="bg-gra-gray"
+                href="/product-detail"
+              />
+              {lang === "th" ? "" : ""}
+              <HeroList
+                title={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
+                content={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
+                src="/images/Banner/Hero/HealthyRice.png"
+                className="bg-gra-red"
+                href="/product-detail"
+              />
+              <HeroList
+                title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"}
+                content={
+                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
+                }
+                src="/images/Banner/Hero/ThaiAromaticRice.png"
+                className=" bg-gra-purple"
+                href="/product-detail"
+              />
+              <HeroList
+                title={
+                  lang === "th"
+                    ? "ผลิตภัณฑ์คุณภาพอื่น"
+                    : "Other quality products"
+                }
+                content={lang === "th" ? "ข้าวหอมผสม" : "Mixed Rice"}
+                src="/images/Banner/Hero/MixedRice.png"
+                className="bg-gra-green "
+                href="/product-detail"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/*----- All Product -----*/}
+        <section className="container mx-auto my-20">
+          <h1 className="my-4">
+            {lang === "th" ? "สินค้าทั้งหมด" : "All Product"}
+          </h1>
+          <div className=" image-slider-container ">
+            <Slider {...ProductSettings}>
+              <ProductList
+                src="/images/Banner/Hero/Jasmine.png"
+                title={
+                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"
+                }
+                // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
+                // price={lang === "th" ? "200 บาท" : "200 Bath"}
+                // sale={lang === "th" ? "250 บาท" : "250 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/WhiteRice.png"
+                title={
+                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
+                }
+                // price={lang === "th" ? "300 บาท" : "300 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/HealthyRice.png"
+                title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
+                // price={lang === "th" ? "400 บาท" : "400 Bath"}
+              />
+              <ProductList
+                src="/images/Banner/Hero/ThaiAromaticRice.png"
+                title={
+                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
+                }
+                // price={lang === "th" ? "500 บาท" : "500 Bath"}
+              />
+            </Slider>
+          </div>
+        </section>
+
+        {/*----------- Comment Old Design -------------*/}
+        {/* <section className="bg-Lbrown2">
           <div className="container mx-auto flex justify-center py-10">
             <div className="flex flex-col gap-10">
-              {/*------ SideBar --------*/}
               <div className="flex flex-col gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border ">
                 <div className="border-b-2 ">
                   <h3 className="font-medium underline-title">
@@ -298,7 +414,7 @@ const OurProduct = () => {
               {filteredProducts.map((product, index) => product)}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/*------- Subscribe our newsletter ------*/}
         <Subscibe />

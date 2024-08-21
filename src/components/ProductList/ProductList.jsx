@@ -11,8 +11,6 @@ function ProductList({ src, title, sale, price, value, day, content }) {
     <span className="text-red-500">Out Off Time!</span>
   );
 
-  // console.log(price.split(" ")[0]);
-  // console.log(sale.split(" ")[0]);
   const percentSale = (sale, price) => {
     if (sale && price) {
       // แปลงค่า sale และ price จากสตริงเป็นตัวเลข โดยการเอาตัวเลขออกจากสตริง
@@ -30,11 +28,6 @@ function ProductList({ src, title, sale, price, value, day, content }) {
     }
     return false;
   };
-  //   ((sale.split(" ")[0] - price.split(" ")[0]) / sale.split(" ")[0]) *
-  //   100
-  // ).toFixed(2);
-
-  // console.log("percent", percent);
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -84,21 +77,20 @@ function ProductList({ src, title, sale, price, value, day, content }) {
           className="mx-auto h-[clamp(200px,20vw,280px)] transition hover:scale-105 duration-400 cursor-pointer"
         />
       </Link>
-      <Countdown
+      {/* <Countdown
         date={Date.now() + day * 1000 * 60 * 60 * 24}
         renderer={renderer}
       >
-        {/* <Completionist /> */}
-      </Countdown>
+      </Countdown> */}
       <div className="flex flex-col pl-10 py-4 text- gap-1 ">
         <h3 className="font-[500]"> {title}</h3>
-        <Rating
+        {/* <Rating
           name="text-feedback"
           value={value}
           readOnly
           precision={0.5}
           emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-        />
+        /> */}
 
         <h5>
           {lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : "Sold by Benjarong"}

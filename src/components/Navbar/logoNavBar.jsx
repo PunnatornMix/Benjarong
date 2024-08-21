@@ -6,7 +6,7 @@ function LogoNavBar({ src, content, children }) {
   return (
     <div className="flex gap-3 cursor-pointer">
       {src ? <img src={src} className="logoNavBar " /> : ""}
-      <div className="w-5">{children}</div>
+      {children ? <div className="w-5">{children} </div> : ""}
       <p className="hover:text-brown1">{content}</p>
     </div>
   );

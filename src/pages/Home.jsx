@@ -32,15 +32,6 @@ const Home = () => {
     slidesToScroll: 1,
   };
 
-  const ProductSettings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    arrows: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-  };
-
   useEffect(() => {
     const storedLang = localStorage.getItem("i18nextLng");
     console.log("storedLang", storedLang);
@@ -120,76 +111,70 @@ const Home = () => {
           </Box>
         </MenuNavBar>
 
-        {/*----- Hero ------*/}
-        <section>
-          <div className="grid grid-cols-2">
-            <div className="bg-gra-Lbrown flex items-center pl-20  h-[680px]">
-              <div className="flex flex-col gap-4 items-start ">
-                <h1>{lang === "th" ? "ข้าวขาวหอมมะลิ" : "Jasmine Rice"}</h1>
+        {/*----- homeBanner -----*/}
+        <img src="/images/mock/homeBanner.png" className="w-full" />
 
-                <p>
-                  {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
-                </p>
-                <Button
-                  href="/product-detail"
-                  color={"brown"}
-                  outline={"outline"}
-                  text={lang === "th" ? "สั่งซื้อ" : "Shop Now"}
-                />
-              </div>
-              <a href="/product-detail" className="h-full">
-                <img
-                  src="/images/Banner/Hero/Jasmine.png"
-                  className="h-full self-end mx-auto hover:hero1animate cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="grid grid-cols-2 ">
-              <HeroList
-                title={
-                  lang === "th" ? "ข้าวขาวเสาไห้" : "White Rice, Sao Hai Rice"
-                }
-                content={
-                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
-                }
-                src="/images/Banner/Hero/WhiteRice.png"
-                className="bg-gra-gray"
-                href="/product-detail"
-              />
-              {lang === "th" ? "" : ""}
-              <HeroList
-                title={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
-                content={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
-                src="/images/Banner/Hero/HealthyRice.png"
-                className="bg-gra-red"
-                href="/product-detail"
-              />
-              <HeroList
-                title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Pathumthani Rice"}
-                content={
-                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
-                }
-                src="/images/Banner/Hero/ThaiAromaticRice.png"
-                className=" bg-gra-purple"
-                href="/product-detail"
-              />
-              <HeroList
+        {lang === "th" ? "" : ""}
+
+        {/*----- About US -----*/}
+        <div className="h-[700px] border ">
+          <h1 className="flex justify-center items-center h-full bg-Lbrown1">
+            About US
+          </h1>
+        </div>
+
+        {/*----- Recommend Product -----*/}
+        <div className="bg-Lbrown2 py-12">
+          <section className="container mx-auto py-12">
+            <h1 className="mb-12">
+              {lang === "th" ? "สินค้าแนะนำ" : "One More Offer For You!"}
+            </h1>
+            <div className="grid grid-cols-3 gap-6">
+              <OfferList
+                src={"/images/Banner/Hero/HealthyRice.png"}
                 title={
                   lang === "th"
-                    ? "ผลิตภัณฑ์คุณภาพอื่น"
-                    : "Other quality products"
+                    ? "Get 30% off on Fruit"
+                    : "Get 30% off on Fruit"
                 }
-                content={lang === "th" ? "ข้าวหอมผสม" : "Mixed Rice"}
-                src="/images/Banner/Hero/MixedRice.png"
-                className="bg-gra-green "
-                href="/product-detail"
+                content={
+                  lang === "th"
+                    ? "There are many variations of passages of Lorem Ipsum available."
+                    : "There are many variations of passages of Lorem Ipsum available."
+                }
+              />
+              <OfferList
+                src={"/images/Banner/Hero/Jasmine.png"}
+                title={
+                  lang === "th"
+                    ? "Get 30% off on Fruit"
+                    : "Get 30% off on Fruit"
+                }
+                content={
+                  lang === "th"
+                    ? "There are many variations of passages of Lorem Ipsum available."
+                    : "There are many variations of passages of Lorem Ipsum available."
+                }
+              />
+              <OfferList
+                src={"/images/Banner/Hero/MixedRice.png"}
+                title={
+                  lang === "th"
+                    ? "Get 30% off on Fruit"
+                    : "Get 30% off on Fruit"
+                }
+                content={
+                  lang === "th"
+                    ? "There are many variations of passages of Lorem Ipsum available."
+                    : "There are many variations of passages of Lorem Ipsum available."
+                }
               />
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        {/*----- Categories -----*/}
-        <section className="container mx-auto py-16">
+        {/*----- Categories Comment Old Design -----*/}
+        {/* <section className="container mx-auto py-16">
           <h1>{lang === "th" ? "หมวดหมู่ต่างๆ" : "Featured Categories"}</h1>
           <div className="h-96 image-slider-container mt-8">
             <Slider {...CategoriesSettings}>
@@ -221,55 +206,10 @@ const Home = () => {
               />
             </Slider>
           </div>
-        </section>
+        </section> */}
 
-        {lang === "th" ? "" : ""}
-        {/*----- Promotion -----*/}
-        <section className="container mx-auto">
-          <h1 className="mb-12">
-            {lang === "th"
-              ? "ข้อเสนอสุดพิเศษสำหรับคุณ"
-              : "One More Offer For You!"}
-          </h1>
-          <div className="grid grid-cols-3 gap-6">
-            <OfferList
-              src={"/images/Banner/Hero/HealthyRice.png"}
-              title={
-                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
-              }
-              content={
-                lang === "th"
-                  ? "There are many variations of passages of Lorem Ipsum available."
-                  : "There are many variations of passages of Lorem Ipsum available."
-              }
-            />
-            <OfferList
-              src={"/images/Banner/Hero/Jasmine.png"}
-              title={
-                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
-              }
-              content={
-                lang === "th"
-                  ? "There are many variations of passages of Lorem Ipsum available."
-                  : "There are many variations of passages of Lorem Ipsum available."
-              }
-            />
-            <OfferList
-              src={"/images/Banner/Hero/MixedRice.png"}
-              title={
-                lang === "th" ? "Get 30% off on Fruit" : "Get 30% off on Fruit"
-              }
-              content={
-                lang === "th"
-                  ? "There are many variations of passages of Lorem Ipsum available."
-                  : "There are many variations of passages of Lorem Ipsum available."
-              }
-            />
-          </div>
-        </section>
-
-        {/*----- Deal of the Day -----*/}
-        <section className="container mx-auto my-20">
+        {/*----- Deal of the Day Comment Old Design-----*/}
+        {/* <section className="container mx-auto my-20">
           <h1 className="my-4">
             {lang === "th" ? "สินค้าลดราคาวันนี้" : "Deals Of The Day"}
           </h1>
@@ -316,53 +256,21 @@ const Home = () => {
               />
             </Slider>
           </div>
-        </section>
-
-        {/*----- All Product -----*/}
-        <section className="container mx-auto my-20">
-          <h1 className="my-4">
-            {lang === "th" ? "สินค้าทั้งหมด" : "All Product"}
-          </h1>
-          <div className=" image-slider-container ">
-            <Slider {...ProductSettings}>
-              <ProductList
-                src="/images/Banner/Hero/Jasmine.png"
-                title={
-                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"
-                }
-                // content={lang === "th" ? "จำหน่ายโดย ข้าวเบญจรงค์" : ""}
-                price={lang === "th" ? "200 บาท" : "200 Bath"}
-                sale={lang === "th" ? "250 บาท" : "250 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/WhiteRice.png"
-                title={
-                  lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"
-                }
-                price={lang === "th" ? "300 บาท" : "300 Bath"}
-                // sale={lang === "th" ? "350 บาท" : "350 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/HealthyRice.png"
-                title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
-                price={lang === "th" ? "400 บาท" : "400 Bath"}
-                sale={lang === "th" ? "450 บาท" : "450 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/ThaiAromaticRice.png"
-                title={
-                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
-                }
-                price={lang === "th" ? "500 บาท" : "500 Bath"}
-                // sale={lang === "th" ? "550 บาท" : "550 Bath"}
-              />
-            </Slider>
-          </div>
-        </section>
+        </section> */}
 
         {/*------- Subscribe our newsletter ------*/}
-        <Subscibe />
+        <div className="border-t-2 border-b-2 bg-white">
+          <div className="container mx-auto h-[200px] grid grid-cols-6 justify-center items-center ">
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+          </div>
+        </div>
 
+        <Subscibe />
         <Footer />
       </Fragment>
     </div>

@@ -11,8 +11,8 @@ const list = [
     title={lang === "th" ? "ข้าวหน้าปลาไหลญี่ปุ่น" : ""}
     content={
       lang === "th"
-        ? "    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
-        : "    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
+        ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
+        : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
     }
   />,
   <ProductItem
@@ -20,8 +20,8 @@ const list = [
     title={lang === "th" ? "ข้าวสเต็กเนื้อสันใน" : ""}
     content={
       lang === "th"
-        ? "    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
-        : "    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
+        ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
+        : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
     }
   />,
 ];
