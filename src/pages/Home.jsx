@@ -18,10 +18,10 @@ import OfferList from "../components/OfferList/OfferList";
 import ProductList from "../components/ProductList/ProductList";
 import Subscibe from "../components/Subscibe/Subscibe";
 import { Link } from "react-router-dom";
+import RecommendProduct from "../components/RecommendProduct/RecommendProduct";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
-  const [hover, setHover] = useState(false);
   const { t, i18n } = useTranslation();
 
   // const CategoriesSettings = {
@@ -193,45 +193,22 @@ const Home = () => {
               />
             </div> */}
             <div className="grid grid-cols-3 gap-6">
-              <a
-                href="/product-detail"
-                className="mx-auto "
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-              >
-                <img
-                  src="/images/Banner/Hero/Jasmine.png "
-                  className={`h-[400px] ${
-                    hover ? "hero1animate" : "hero2animate"
-                  } `}
-                />
-                {lang === "th" ? "" : ""}
-                <h2
-                  className={`text-center ${
-                    hover ? "text-brown1" : "text-black"
-                  }`}
-                >
-                  {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
-                </h2>
-              </a>
-              <div className="mx-auto">
-                <img
-                  src="/images/Banner/Hero/WhiteRice.png"
-                  className="h-[400px]"
-                />
-                <h2 className="text-center">
-                  {lang === "th" ? "ข้าวขาวเสาไห้" : ""}
-                </h2>
-              </div>
-              <div className="mx-auto">
-                <img
-                  src="/images/Banner/Hero/RiceBerry.png"
-                  className="h-[400px]"
-                />
-                <h2 className="text-center">
-                  {lang === "th" ? "ข้าวเพื่อสุขภาพ" : ""}
-                </h2>
-              </div>
+              <RecommendProduct
+                src={"/images/Banner/Hero/Jasmine.png "}
+                nameEN={lang === "th" ? "100% Jasmine Rice" : ""}
+                nameTH={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+              />
+              <RecommendProduct
+                src={"/images/Banner/Hero/WhiteRice.png"}
+                nameEN={lang === "th" ? "Sao Hai Rice" : ""}
+                nameTH={lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+              />
+              <RecommendProduct
+                src={"/images/Banner/Hero/RiceBerry.png"}
+                nameEN={lang === "th" ? "Healthy Rice" : ""}
+                nameTH={lang === "th" ? "ข้าวเพื่อสุขภาพ" : ""}
+                className={"w-[267px] object-cover"}
+              />
             </div>
           </section>
         </div>

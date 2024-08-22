@@ -14,7 +14,7 @@ function Footer() {
 
   return (
     <section className="bg-Lbrown2 border-t-2">
-      <div className="grid container mx-auto grid-cols-4 ">
+      <div className="grid w-[80%] mx-auto grid-cols-4 ">
         <div className="flex flex-col gap-5 footer  items-start">
           <img src="/images/logo/band.png" className="h-20" />
           <h5 className="font-light text-gray-500">
