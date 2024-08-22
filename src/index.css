@@ -127,6 +127,12 @@
     transform-origin: center;
     transform: scale(1.06, 1.06);
   }
+  .hero2animate {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform-origin: center;
+    transform: scale(0.9, 0.9);
+  }
 
   .footer {
     @apply py-10 px-6;

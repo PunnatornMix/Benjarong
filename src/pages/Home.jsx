@@ -21,16 +21,17 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
+  const [hover, setHover] = useState(false);
   const { t, i18n } = useTranslation();
 
-  const CategoriesSettings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    arrows: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-  };
+  // const CategoriesSettings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 1000,
+  //   arrows: true,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 1,
+  // };
 
   useEffect(() => {
     const storedLang = localStorage.getItem("i18nextLng");
@@ -117,19 +118,40 @@ const Home = () => {
         {lang === "th" ? "" : ""}
 
         {/*----- About US -----*/}
-        <div className="h-[700px] border ">
-          <h1 className="flex justify-center items-center h-full bg-Lbrown1">
-            About US
-          </h1>
-        </div>
+        <section className="h-[700px] border bg-Lbrown1">
+          <div className="container mx-auto grid grid-cols-2 h-full py-20 gap-20">
+            <div className="flex flex-col gap-4 items-center justify-center">
+              <h1>ASIA INTER RICE CO., LTD</h1>
+              <h2 className="text-center">
+                {lang === "th" ? (
+                  <>
+                    บริษัทดำเนินธุรกิจด้านการผลิตสินค้าข้าวสารบรรจุถุง <br />{" "}
+                    เวลามากกว่า 20 ปี
+                  </>
+                ) : (
+                  <>
+                    Asia Inter Rice has a great long history
+                    <br /> for over 20 years.
+                  </>
+                )}
+              </h2>
+              <p className="pt-4">
+                {lang === "th"
+                  ? "ภายใต้แบรนด์ ข้าวเบญจรงค์ ข้าวสุพรรณหงษ์ ข้าวมิตรภาพ และอีกหลากหลายแบรนด์ เพื่อตอบสนองความต้องการที่หลากหลายของผู้บริโภค เรามุ่งมั่นและพัฒนาในการดำเนินการผลิตให้เป็นไปตามระบบคุณภาพ GMP HACCP และ HALAL ซึ่งมีความสำคัญต่อผลิตภัณฑ์ข้าวสารบรรจุถุง เนื่องจากระบบจะให้ความสำคัญต่อการใช้เครื่องจักรอุปกรณ์ที่มีประสิทธิภาพควบคุมทุกขั้นตอนของกระบวนการผลิต"
+                  : "Operating under the brands such as Benjarong Rice, Supanahong Rice, Mittrapap Rice,and other brands to satisfy the various consumer needs.We strive to up hold the standard of GMP HACCP and HALAL, which has the importance in production in making bag packed rice since the system focuses on the efficiency of the machinery and equipments to control the production process."}
+              </p>
+            </div>
+            <img src="/images/mock/homepic.png" />
+          </div>
+        </section>
 
         {/*----- Recommend Product -----*/}
         <div className="bg-Lbrown2 py-12">
           <section className="container mx-auto py-12">
-            <h1 className="mb-12">
+            <h1 className="mb-12 text-center">
               {lang === "th" ? "สินค้าแนะนำ" : "One More Offer For You!"}
             </h1>
-            <div className="grid grid-cols-3 gap-6">
+            {/* <div className="grid grid-cols-3 gap-6">
               <OfferList
                 src={"/images/Banner/Hero/HealthyRice.png"}
                 title={
@@ -169,12 +191,76 @@ const Home = () => {
                     : "There are many variations of passages of Lorem Ipsum available."
                 }
               />
+            </div> */}
+            <div className="grid grid-cols-3 gap-6">
+              <a
+                href="/product-detail"
+                className="mx-auto "
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+              >
+                <img
+                  src="/images/Banner/Hero/Jasmine.png "
+                  className={`h-[400px] ${
+                    hover ? "hero1animate" : "hero2animate"
+                  } `}
+                />
+                {lang === "th" ? "" : ""}
+                <h2
+                  className={`text-center ${
+                    hover ? "text-brown1" : "text-black"
+                  }`}
+                >
+                  {lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
+                </h2>
+              </a>
+              <div className="mx-auto">
+                <img
+                  src="/images/Banner/Hero/WhiteRice.png"
+                  className="h-[400px]"
+                />
+                <h2 className="text-center">
+                  {lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+                </h2>
+              </div>
+              <div className="mx-auto">
+                <img
+                  src="/images/Banner/Hero/RiceBerry.png"
+                  className="h-[400px]"
+                />
+                <h2 className="text-center">
+                  {lang === "th" ? "ข้าวเพื่อสุขภาพ" : ""}
+                </h2>
+              </div>
             </div>
           </section>
         </div>
 
-        {/*----- Categories Comment Old Design -----*/}
-        {/* <section className="container mx-auto py-16">
+        {/*------- Subscribe our newsletter ------*/}
+        <div className="border-t-2 border-b-2 bg-white">
+          <div className="container mx-auto h-[200px] grid grid-cols-6 justify-center items-center ">
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
+          </div>
+        </div>
+
+        <Subscibe />
+        <Footer />
+      </Fragment>
+    </div>
+  );
+};
+export default Home;
+
+{
+  /*----- Categories Comment Old Design -----*/
+}
+{
+  /* <section className="container mx-auto py-16">
           <h1>{lang === "th" ? "หมวดหมู่ต่างๆ" : "Featured Categories"}</h1>
           <div className="h-96 image-slider-container mt-8">
             <Slider {...CategoriesSettings}>
@@ -206,10 +292,14 @@ const Home = () => {
               />
             </Slider>
           </div>
-        </section> */}
+        </section> */
+}
 
-        {/*----- Deal of the Day Comment Old Design-----*/}
-        {/* <section className="container mx-auto my-20">
+{
+  /*----- Deal of the Day Comment Old Design-----*/
+}
+{
+  /* <section className="container mx-auto my-20">
           <h1 className="my-4">
             {lang === "th" ? "สินค้าลดราคาวันนี้" : "Deals Of The Day"}
           </h1>
@@ -256,24 +346,5 @@ const Home = () => {
               />
             </Slider>
           </div>
-        </section> */}
-
-        {/*------- Subscribe our newsletter ------*/}
-        <div className="border-t-2 border-b-2 bg-white">
-          <div className="container mx-auto h-[200px] grid grid-cols-6 justify-center items-center ">
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-            <i class="fa-brands fa-twitter text-5xl mx-auto "></i>
-          </div>
-        </div>
-
-        <Subscibe />
-        <Footer />
-      </Fragment>
-    </div>
-  );
-};
-export default Home;
+        </section> */
+}
