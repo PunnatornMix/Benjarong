@@ -1,4 +1,4 @@
-import { green } from "@mui/material/colors";
+import { green, yellow } from "@mui/material/colors";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,11 +8,12 @@ export default {
       colors: {
         HoverBrown: "#3f0301",
         brown: "#481210",
-        brown1: "#683423",
-        Lbrown: "#f8dd9d",
-        Lbrown1: "#fcf4e0",
-        Lbrown2: "#fcfaf7",
-        green: "#61a402",
+        brown1: "#714818",
+        Lbrown: "#BC8D48",
+        Lbrown1: "#efebd6",
+        Lbrown2: "#F7F5EA",
+        yellow: "#F1C232",
+        green: "#BC8D48",
         gradient:
           "linear-gradient(135deg,rgba(255, 255, 255, 1) 20%,#f8dd9d 77%)",
       },

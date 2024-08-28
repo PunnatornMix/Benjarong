@@ -15,6 +15,7 @@ import ProductList from "../components/ProductList/ProductList";
 import Button from "../components/Button/Button";
 import HeroList from "../components/Hero/HeroList";
 import Slider from "react-slick";
+import ProductItem from "../components/ProductList/ProductItem";
 
 const OurProduct = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
@@ -161,14 +162,15 @@ const OurProduct = () => {
 
   return (
     <div id="AboutUs">
-      <Fragment>
+      <header>
         <SEO
-          title="OurProduct"
-          description="A description of the page"
-          name="Benjarong"
-          type="articlec"
-          keywords="HTML, CSS, JavaScript"
+          title="ผลิตภัณฑ์ของเรา - ข้าวหอมมะลิและสินค้าอื่น ๆ จากเบญจรงค์"
+          description="สำรวจผลิตภัณฑ์ของบริษัทเบญจรงค์ รวมถึงข้าวหอมมะลิคุณภาพสูงและสินค้าอื่น ๆ ที่เรามีให้บริการ เพื่อให้คุณได้เลือกสิ่งที่ดีที่สุดสำหรับความต้องการของคุณ"
+          name="เบญจรงค์"
+          type="article"
+          keywords="ผลิตภัณฑ์, ข้าวหอมมะลิ, ข้าวเบญจรงค์, สินค้าข้าว, คุณภาพสูง"
         />
+
         <MenuNavBar>
           <Box>
             <FormControl fullWidth variant="standard">
@@ -197,7 +199,7 @@ const OurProduct = () => {
                     </svg>
 
                     {/* <UnitedStates className="w-[25px]" /> */}
-                    <p> Thailand</p>
+                    <p> TH</p>
                   </div>
                 </MenuItem>
                 <MenuItem value={"en"}>
@@ -218,15 +220,73 @@ const OurProduct = () => {
                     </svg>
 
                     {/* <UnitedStates className="w-[25px]" /> */}
-                    <p> English</p>
+                    <p> EN</p>
                   </div>
                 </MenuItem>
               </Select>
             </FormControl>
           </Box>
         </MenuNavBar>
-        {/*----- Hero ------*/}
+      </header>
+
+      <main>
+        <section className=" mx-auto py-24">
+          <div className="text-center">
+            <h3 className="font-[300] text-Lbrown translate-y-2">
+              OUR PRODUCT
+            </h3>
+            <h1 className="text-brown1 ">สินค้าแนะนำ</h1>
+            <div className="grid grid-cols-3 gap-6 mx-6 py-16  border-Lbrown border-b-[1px]">
+              <ProductItem
+                bestseller={true}
+                src="/images/Banner/Hero/Jasmine.png"
+              />
+              <ProductItem
+                bestseller={true}
+                src="/images/Banner/Hero/ThaiAromaticRice.png"
+              />
+              <ProductItem
+                bestseller={true}
+                src="/images/Banner/Hero/WhiteRice.png"
+              />
+            </div>
+          </div>
+        </section>
+
         <section>
+          <div className="text-center">
+            <h3 className="font-[300] text-Lbrown ">OUR RICE</h3>
+            <h1 className="text-brown1 ">ข้าวทั้งหมด</h1>
+          </div>
+          <div className="">
+            <div className="flex flex-col bg-Lbrown2 my-20 mx-5 py-16 px-24 ">
+              {lang === "th" ? "" : ""}
+              <div className="w-1/3">
+                <h2 className="text-Lbrown pb-3">
+                  {lang === "th" ? "ชนิดของข้าว" : ""}
+                </h2>
+                <h1 className="text-brown1 border-b-2 py-6">
+                  {lang === "th" ? "ข้าวขาวหอมมะลิ" : ""}
+                </h1>
+                <h1 className="text-brown1 border-b-2 py-6">
+                  {lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+                </h1>
+                <h1 className="text-brown1 border-b-2 py-6">
+                  {lang === "th" ? "ข้าวสุขภาพ" : ""}
+                </h1>
+                <h1 className="text-brown1 border-b-2 py-6">
+                  {lang === "th" ? "ข้าวหอมปทุมธานี" : ""}
+                </h1>
+                <h1 className="text-brown1 border-b-2 py-6">
+                  {lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : ""}
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/*----- Hero Old Code ------*/}
+        {/* <section>
           <div className="grid grid-cols-2">
             <div className="bg-gra-Lbrown flex items-center pl-20  h-[680px]">
               <div className="flex flex-col gap-4 items-start ">
@@ -261,7 +321,7 @@ const OurProduct = () => {
                 className="bg-gra-gray"
                 href="/product-detail"
               />
-              {lang === "th" ? "" : ""}
+              {lang === "th" ? true : ""}
               <HeroList
                 title={lang === "th" ? "ข้าวสุขภาพ" : "Healthy Rice"}
                 content={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
@@ -291,10 +351,10 @@ const OurProduct = () => {
               />
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/*----- All Product -----*/}
-        <section className="container mx-auto my-20">
+        {/*----- All Product Old Code  -----*/}
+        {/* <section className="container mx-auto my-20">
           <h1 className="my-4">
             {lang === "th" ? "สินค้าทั้งหมด" : "All Product"}
           </h1>
@@ -330,10 +390,11 @@ const OurProduct = () => {
               />
             </Slider>
           </div>
-        </section>
+        </section> */}
+      </main>
 
-        {/*----------- Comment Old Design -------------*/}
-        {/* <section className="bg-Lbrown2">
+      {/*----------- Comment Old Design -------------*/}
+      {/* <section className="bg-Lbrown2">
           <div className="container mx-auto flex justify-center py-10">
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border ">
@@ -416,11 +477,11 @@ const OurProduct = () => {
           </div>
         </section> */}
 
+      <footer>
         {/*------- Subscribe our newsletter ------*/}
         <Subscibe />
-
         <Footer />
-      </Fragment>
+      </footer>
     </div>
   );
 };

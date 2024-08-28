@@ -33,12 +33,13 @@ const AboutUs = () => {
     <div id="AboutUs">
       <Fragment>
         <SEO
-          title="About-us"
-          description="A description of the page"
-          name="Benjarong"
-          type="articlec"
-          keywords="HTML, CSS, JavaScript"
+          title="เกี่ยวกับเรา - ประวัติ, ภารกิจ, และวิสัยทัศน์ของเบญจรงค์"
+          description="เรียนรู้เกี่ยวกับบริษัทเบญจรงค์ - ประวัติความเป็นมาของเราที่มีชื่อเสียงในอุตสาหกรรมข้าว, ภารกิจในการผลิตข้าวหอมมะลิคุณภาพสูง, และวิสัยทัศน์ที่มุ่งมั่นในการให้บริการที่ดีที่สุด"
+          name="เบญจรงค์"
+          type="article"
+          keywords="เกี่ยวกับเรา, ข้าวเบญจรงค์, ข้าวหอมมะลิ, ประวัติบริษัท, ภารกิจ, วิสัยทัศน์, ข้าวคุณภาพ"
         />
+
         <MenuNavBar>
           <Box>
             <FormControl fullWidth variant="standard">

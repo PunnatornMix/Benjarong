@@ -24,24 +24,6 @@ function HoverItem({ content, children, icon }) {
           className={`w-[25px]  ${hover ? "text-HoverBrown" : ""}  `}
         />
       );
-      // } else if (icon == "Mail") {
-      //   return (
-      //     <Mail
-      //       className={`w-[35px]  ${
-      //         hover ? "bg-red" : "bg-blue"
-      //       }   p-[8px] rounded-full hover:bg-red`}
-      //       fill={"#FFFFFF"}
-      //     />
-      //   );
-      // } else if (icon == "CircleMail") {
-      //   return (
-      //     <Mail
-      //       className={`fill-blue border-[2.5px] border-blue ${
-      //         hover ? "border-red" : "border-blue"
-      //       }   rounded-full cursor-pointer w-[35px] p-1  `}
-      //       fill={hover ? "#DC1E32" : "#100F9C"}
-      //     />
-      //   );
     } else if (icon == "LocationIcon") {
       return (
         <LocationIcon
@@ -75,7 +57,7 @@ function HoverItem({ content, children, icon }) {
 
   return (
     <div
-      className={` cursor-pointer flex ${content ? "gap-2" : ""}  items-center`}
+      className={` cursor-pointer flex ${content ? "gap-2" : ""} items-center`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >

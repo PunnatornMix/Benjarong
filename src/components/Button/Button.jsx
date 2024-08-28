@@ -10,7 +10,7 @@ function Button({ className, color, outline, href, text }) {
 
   function Outline(color, outline) {
     if (outline === "outline") {
-      return ` btn-outline  bg-transparent text-brown hover:bg-brown hover:text-white`;
+      return ` btn-outline  bg-transparent text-brown1 hover:bg-brown1 hover:text-white`;
     }
   }
 

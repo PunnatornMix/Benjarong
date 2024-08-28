@@ -2,11 +2,11 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductItem from "../../components/ProductList/ProductItem";
+import ReviewMenu from "../../components/ProductList/ReviewMenu";
 const lang = localStorage.getItem("i18nextLng");
 
 const list = [
-  <ProductItem
+  <ReviewMenu
     src={"/images/product/review01.png"}
     title={lang === "th" ? "ข้าวหน้าปลาไหลญี่ปุ่น" : ""}
     content={
@@ -15,7 +15,7 @@ const list = [
         : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias asperiores, sunt sint eaque doloremque nostrum quia mollitia ipsum at deserunt rem earum fuga, corporis praesentium. Doloribus quidem consectetur illo. Facere!"
     }
   />,
-  <ProductItem
+  <ReviewMenu
     src={"/images/product/review02.png"}
     title={lang === "th" ? "ข้าวสเต็กเนื้อสันใน" : ""}
     content={

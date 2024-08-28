@@ -426,6 +426,26 @@ z"
   );
 }
 
+export function ArrowIcon({ className = null }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24.551"
+      height="20.584"
+      viewBox="0 0 24.551 20.584"
+      className={className}
+    >
+      <path
+        id="Union_1"
+        data-name="Union 1"
+        d="M18980.631-10541.507a15.967,15.967,0,0,1,1.453-5.4,10.005,10.005,0,0,1,3.326-4.052H18966v-1.5h19.412a9.984,9.984,0,0,1-3.326-4.046,15.978,15.978,0,0,1-1.453-5.405l1.5-.09a14.8,14.8,0,0,0,1.324,4.885,7.46,7.46,0,0,0,7.1,4.656v1.5a7.464,7.464,0,0,0-7.1,4.661,14.792,14.792,0,0,0-1.324,4.881Z"
+        transform="translate(-18965.998 10562)"
+        fill="currentColor"
+      ></path>
+    </svg>
+  );
+}
+
 export function Icon({ className = null }) {
   return <div></div>;
 }

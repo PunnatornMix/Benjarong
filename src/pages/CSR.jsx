@@ -118,15 +118,16 @@ const CSR = () => {
   };
 
   return (
-    <div id="AboutUs">
-      <Fragment>
+    <div id="CSR">
+      <header>
         <SEO
-          title="About-us"
-          description="A description of the page"
-          name="Benjarong"
-          type="articlec"
-          keywords="HTML, CSS, JavaScript"
+          title="กิจกรรม CSR ของบริษัทเบญจรงค์ - การสนับสนุนและการมีส่วนร่วมในสังคม"
+          description="เรียนรู้เกี่ยวกับกิจกรรม CSR ของบริษัทเบญจรงค์ การสนับสนุนสังคมและโครงการต่างๆ ที่เรามีส่วนร่วมเพื่อพัฒนาสังคมและชุมชน"
+          name="เบญจรงค์"
+          type="article"
+          keywords="CSR, กิจกรรมสังคม, บริษัทเบญจรงค์, การสนับสนุนชุมชน, โครงการสังคม"
         />
+
         <MenuNavBar>
           <Box>
             <FormControl fullWidth variant="standard">
@@ -183,7 +184,9 @@ const CSR = () => {
             </FormControl>
           </Box>
         </MenuNavBar>
+      </header>
 
+      <main>
         <section className="container mx-auto flex gap-10 py-14 first-letter:*:">
           <div className="w-1/4">
             {lang === "th" ? "" : ""}
@@ -205,10 +208,7 @@ const CSR = () => {
                 onClick={() => handleOnClick("Jasmine Rice")}
                 value="Jasmine Rice"
               >
-                <LogoNavBar
-                  // src="/images/Banner/Hero/Jasmine.png"
-                  content={lang === "th" ? "ข่าวสาร" : "News"}
-                >
+                <LogoNavBar content={lang === "th" ? "ข่าวสาร" : "News"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -248,36 +248,37 @@ const CSR = () => {
 
             <div className="flex flex-col gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border mt-12">
               <div className="border-b-2 ">
-                <h3 className="font-medium underline-title pb-4">
+                <h3 className="font-medium underline-title ">
                   {lang === "th" ? "ข่าวยอดนิยม" : "Trending News"}
                 </h3>
-                <div className="flex flex-col gap-4">
-                  <CSRPost
-                    src={CSRContent.A.img}
-                    title={CSRContent.A.title}
-                    date={CSRContent.A.date}
-                  />
-                  <CSRPost
-                    src={CSRContent.B.img}
-                    title={CSRContent.B.title}
-                    date={CSRContent.B.date}
-                  />
-                  <CSRPost
-                    src={CSRContent.A.img}
-                    title={CSRContent.A.title}
-                    date={CSRContent.A.date}
-                  />
-                  <CSRPost
-                    src={CSRContent.B.img}
-                    title={CSRContent.B.title}
-                    date={CSRContent.B.date}
-                  />
-                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <CSRPost
+                  src={CSRContent.A.img}
+                  title={CSRContent.A.title}
+                  date={CSRContent.A.date}
+                />
+                <CSRPost
+                  src={CSRContent.B.img}
+                  title={CSRContent.B.title}
+                  date={CSRContent.B.date}
+                />
+                <CSRPost
+                  src={CSRContent.A.img}
+                  title={CSRContent.A.title}
+                  date={CSRContent.A.date}
+                />
+                <CSRPost
+                  src={CSRContent.B.img}
+                  title={CSRContent.B.title}
+                  date={CSRContent.B.date}
+                />
               </div>
             </div>
             <div className="flex flex-col gap-4 min-w-[280px] rounded-md p-4 mr-3 bg-white border mt-12">
               <div className="border-b-2 ">
-                <h3 className="font-medium underline-title pb-4">
+                <h3 className="font-medium underline-title ">
                   {lang === "th" ? "แท็กยอดนิยม" : "Popular tag"}
                 </h3>
               </div>
@@ -287,12 +288,14 @@ const CSR = () => {
             {CSRList.map((item) => item)}
           </div>
         </section>
+      </main>
 
-        {/*------- Subscribe our newsletter ------*/}
+      {/*------- Subscribe our newsletter ------*/}
+      <footer>
         <Subscibe />
 
         <Footer />
-      </Fragment>
+      </footer>
     </div>
   );
 };

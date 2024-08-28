@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import ReactSearchBox from "react-search-box";
 import { LocationIcon, PhoneIcon, SearchIcon } from "../icons/icons";
 import HoverItem from "./HoverItem";
+import useWindowSize from "../../useWindowSize/useWindowSize";
 
 window.addEventListener("scroll", function () {
   const scrollPosition = window.scrollY;
   const targetPosition = 5; // ตำแหน่งที่คุณต้องการให้แสดง bg
-
   const contentElement = document.getElementById("content");
 
   if (scrollPosition >= targetPosition) {
@@ -17,6 +18,7 @@ window.addEventListener("scroll", function () {
 
 function MenuNavBar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { width } = useWindowSize();
 
   const handleClose = () => setIsOpen(false);
   const lang = localStorage.getItem("i18nextLng");
@@ -40,22 +42,81 @@ function MenuNavBar({ children }) {
     return classes;
   }
 
+  const handleSelect = (record) => {
+    const selectedItem = dataList.find((item) => item.key == record.item.key);
+    console.log("record", record);
+    navigate(selectedItem.link); // นำทางไปยังลิงก์ที่เลือก
+  };
+
+  const dataList = [
+    {
+      key: "แบเรียมฟลูออไรด์",
+      value: "แบเรียมฟลูออไรด์",
+      link: "/product-item",
+    },
+    {
+      key: "ผงโซเดียมฟลูออไรด์",
+      value: "ผงโซเดียมฟลูออไรด์",
+      link: "/product-itemabout-us",
+    },
+    {
+      key: "ผงแคลเซียมฟลูออไรด์",
+      value: "ผงแคลเซียมฟลูออไรด์",
+      link: "/product-item",
+    },
+    {
+      key: "ผงแมกนีเซียมฟลูออไรด์",
+      value: "ผงแมกนีเซียมฟลูออไรด์",
+      link: "/product-item",
+    },
+    {
+      key: "ผงอะลูมิเนียมไฮดรอกไซด์",
+      value: "ผงอะลูมิเนียมไฮดรอกไซด์",
+      link: "/product-item",
+    },
+    { key: "โพแทสเซียม", value: "โพแทสเซียม", link: "/product-item" },
+    {
+      key: "โพแทสเซียมอะลูมิเนียมฟลูออไรด์",
+      value: "โพแทสเซียมอะลูมิเนียมฟลูออไรด์",
+      link: "/product-item",
+    },
+    {
+      key: "โพแทสเซียมฟลูออโรเรต",
+      value: "โพแทสเซียมฟลูออโรเรต",
+      link: "/product-item",
+    },
+    {
+      key: "เม็ดสีเหล็กออกไซด์",
+      value: "เม็ดสีเหล็กออกไซด์",
+      link: "/product-item",
+    },
+    {
+      key: "อลูมิเนียมฟลูออไรด์",
+      value: "อลูมิเนียมฟลูออไรด์",
+      link: "/product-item",
+    },
+  ];
+
   return (
     <>
-      <section className=" mx-auto h-32 w-full flex justify-around items-center">
+      <section className="container mx-auto h-32 w-full flex justify-between  items-center">
         <a href="/">
           <img src="/images/logo/band.png" className="h-32 py-6" />
         </a>
         <div className="flex">
-          <label className="input input-bordered bg-transparent  rounded-[40px] w-96 rounded-r-none border-brown1 flex items-center gap-2">
-            <input
+          <div className="my-custom-search-box">
+            {/* <div className="my-custom-search-box input input-bordered bg-transparent  rounded-[40px] w-[300px] rounded-r-none border-brown1 flex items-center gap-2"> */}
+            <ReactSearchBox
               type="text"
-              className="grow "
               placeholder={
                 lang === "th" ? "ค้นหาสินค้า..." : "Search for Products..."
               }
+              value=""
+              data={dataList}
+              onSelect={handleSelect}
             />
-          </label>
+          </div>
+
           <select className="select select-bordered border-l-0 border-brown1 w-full bg-transparent rounded-none max-w-40">
             <option disabled selected>
               {lang === "th" ? "หมวดหมู่ทั้งหมด" : "All Categories"}
@@ -66,7 +127,7 @@ function MenuNavBar({ children }) {
             <option>Lisa</option>
             <option>Maggie</option>
           </select>
-          <div className="bg-brown1 h-[48px] w-[52px] flex justify-center items-center rounded-r-[40px]">
+          <div className="bg-brown1 h-[48px] min-w-[48px] flex justify-center items-center rounded-r-[40px]">
             <SearchIcon />
           </div>
         </div>
@@ -79,19 +140,13 @@ function MenuNavBar({ children }) {
             <HoverItem
               icon={"LocationIcon"}
               content={
-                lang === "th"
-                  ? "ถนนบางนา-ตราด, สมุทรปราการ"
-                  : "Bangna-Trad Road, Samut Prakan"
+                width > 1024
+                  ? lang === "th"
+                    ? "ถนนบางนา-ตราด, สมุทรปราการ"
+                    : "Bangna-Trad Road, Samut Prakan"
+                  : ""
               }
-            >
-              {/* <LocationIcon className={"w-[30px]"} /> */}
-
-              <h5>
-                {lang === "th"
-                  ? "ถนนบางนา-ตราด, สมุทรปราการ"
-                  : "Bangna-Trad Road, Samut Prakan"}
-              </h5>
-            </HoverItem>
+            ></HoverItem>
           </a>
 
           <a
@@ -106,7 +161,6 @@ function MenuNavBar({ children }) {
           <div className="form">{children}</div>
         </div>
       </section>
-      {lang === "th" ? "" : ""}
 
       <section className="bg-brown1 ">
         <div className="container mx-auto pl-[11%] text-white flex h-[60px] items-center gap-20">

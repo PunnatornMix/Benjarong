@@ -47,14 +47,15 @@ const Home = () => {
 
   return (
     <div id="home">
-      <Fragment>
+      <header>
         <SEO
-          title="HomePage"
-          description="A description of the page"
-          name="Benjarong"
-          type="articlec"
-          keywords="HTML, CSS, JavaScript"
+          title="หน้าแรกของเบญจรงค์ - ข้าวหอมมะลิคุณภาพสูงและสินค้าอื่น ๆ"
+          description="ยินดีต้อนรับสู่หน้าแรกของเบญจรงค์! สำรวจข้าวหอมมะลิคุณภาพสูงและผลิตภัณฑ์ข้าวอื่น ๆ ที่คัดสรรมาพิเศษ พร้อมข้อมูลเกี่ยวกับบริษัทและการบริการของเรา"
+          name="เบญจรงค์"
+          type="article"
+          keywords="หน้าแรก, ข้าวเบญจรงค์, ข้าวหอมมะลิ, ข้าวคุณภาพ, บริษัทข้าว, ผลิตภัณฑ์ข้าว"
         />
+
         <MenuNavBar>
           <Box>
             <FormControl fullWidth variant="standard">
@@ -83,7 +84,7 @@ const Home = () => {
                     </svg>
 
                     {/* <UnitedStates className="w-[25px]" /> */}
-                    <p> Thailand</p>
+                    <p>TH</p>
                   </div>
                 </MenuItem>
                 <MenuItem value={"en"}>
@@ -104,18 +105,20 @@ const Home = () => {
                     </svg>
 
                     {/* <UnitedStates className="w-[25px]" /> */}
-                    <p> English</p>
+                    <p>EN</p>
                   </div>
                 </MenuItem>
               </Select>
             </FormControl>
           </Box>
         </MenuNavBar>
+      </header>
 
-        {/*----- homeBanner -----*/}
-        <img src="/images/mock/homeBanner.png" className="w-full" />
-
-        {lang === "th" ? "" : ""}
+      <main>
+        <section>
+          {/*----- Hero -----*/}
+          <img src="/images/mock/homeBanner.png" className="w-full" />
+        </section>
 
         {/*----- About US -----*/}
         <section className="h-[700px] border bg-Lbrown1">
@@ -146,8 +149,8 @@ const Home = () => {
         </section>
 
         {/*----- Recommend Product -----*/}
-        <div className="bg-Lbrown2 py-12">
-          <section className="container mx-auto py-12">
+        <section className="bg-Lbrown2 py-12">
+          <div className="container mx-auto py-12">
             <h1 className="mb-12 text-center">
               {lang === "th" ? "สินค้าแนะนำ" : "One More Offer For You!"}
             </h1>
@@ -210,9 +213,11 @@ const Home = () => {
                 className={"w-[267px] object-cover"}
               />
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
+      </main>
 
+      <footer>
         {/*------- Subscribe our newsletter ------*/}
         <div className="border-t-2 border-b-2 bg-white">
           <div className="container mx-auto h-[200px] grid grid-cols-6 justify-center items-center ">
@@ -227,7 +232,7 @@ const Home = () => {
 
         <Subscibe />
         <Footer />
-      </Fragment>
+      </footer>
     </div>
   );
 };

@@ -19,6 +19,7 @@ const AppRouters = () => (
         element={<ProductDatail />}
       />
       <Route path="/CSR" exact element={<CSR />} />
+      {/* <Route path="/review" exact element={<Reviews />} /> */}
 
       {/* <Route path="/shareholding/:mainpage?" exact element={<Shareholding />} /> */}
       {/* <Route path="*" exact element={<NotFound />} /> */}
