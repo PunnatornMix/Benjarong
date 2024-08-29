@@ -16,68 +16,70 @@ import Button from "../components/Button/Button";
 import HeroList from "../components/Hero/HeroList";
 import Slider from "react-slick";
 import ProductItem from "../components/ProductList/ProductItem";
+import ProductNarbar from "../components/Navbar/ProductNarbar";
 
 const OurProduct = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [openItems, setOpenItems] = useState({});
+  const [classItem, setClassItem] = useState(null);
 
   const { t, i18n } = useTranslation();
 
   const productList = [
-    <ProductList
+    <ProductItem
+      bestseller={true}
+      src="/images/Banner/Hero/Jasmine.png"
+      title={
+        lang === "th"
+          ? "ข้าวขาวหอมมะลิ 100% ตรา เบญจรงค์"
+          : "100% Jasmine Rice Benjarong"
+      }
+      content={
+        lang === "th"
+          ? "ขนาดบรรจุ: ซอง 200 กรัม กล่อง 800 กรัม (4ซอง)2 / 5 / 15 / 48 กิโลกรัม"
+          : "Capacity: 200 grams. Box 800 grams (4 packets) 2 / 5 / 15 / 48 kilograms"
+      }
+    />,
+    <ProductItem
       src="/images/Banner/Hero/Jasmine.png"
       category="Jasmine Rice"
       title={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"}
-      price={lang === "th" ? "200 บาท" : "200 Bath"}
-      sale={lang === "th" ? "250 บาท" : "250 Bath"}
-      value={3}
-      // day={"5"}
+      content={
+        lang === "th" ? "ขนาดบรรจุ: 5 กิโลกรัม" : "Capacity: 5 kilograms"
+      }
     />,
-    <ProductList
+    <ProductItem
+      bestseller={true}
       src="/images/Banner/Hero/WhiteRice.png"
-      category="White Rice, Sao Hai Rice"
-      title={lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%)"}
-      price={lang === "th" ? "300 บาท" : "300 Bath"}
-      sale={lang === "th" ? "350 บาท" : "350 Bath"}
-      value={4}
-      // day={"4"}
+      title={
+        lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice (100%) Benjarong"
+      }
+      content={
+        lang === "th"
+          ? "ขนาดบรรจุ : 2 / 5 / 15 / 48 กิโลกรัม"
+          : "Capacity: 2 / 5 / 15 / 48 kilograms"
+      }
     />,
-    <ProductList
-      src="/images/Banner/Hero/HealthyRice.png"
-      category="Healthy Rice"
-      title={lang === "th" ? "ข้าวแดงหอม" : "Daeng Hom Rice"}
-      price={lang === "th" ? "400 บาท" : "400 Bath"}
-      sale={lang === "th" ? "450 บาท" : "450 Bath"}
-      value={4.5}
-      // day={"2.2"}
-    />,
-    <ProductList
-      title={lang === "th" ? "ข้าวหอมปทุมธานี" : "Thai Aromatic Rice 100%"}
-      category="Pathumthani Rice"
-      src={"/images/Banner/Hero/ThaiAromaticRice.png"}
-      price={lang === "th" ? "500 บาท" : "500 Bath"}
-      // sale={lang === "th" ? "550 บาท" : "550 Bath"}
-      value={4.5}
-      // day={"2.2"}
-    />,
-    <ProductList
-      category="Other quality products"
-      title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : "Mixed Rice"}
-      src={"/images/Banner/Hero/MixedRice.png"}
-      price={lang === "th" ? "200 บาท" : "500 Bath"}
-      // sale={lang === "th" ? "550 บาท" : "550 Bath"}
-      value={4.5}
-      // day={"2.2"}
-    />,
+
+    // <ProductList
+    //   category="Other quality products"
+    //   title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : "Mixed Rice"}
+    //   src={"/images/Banner/Hero/MixedRice.png"}
+    //   price={lang === "th" ? "200 บาท" : "500 Bath"}
+    //   sale={lang === "th" ? "550 บาท" : "550 Bath"}
+    //   value={4.5}
+    //   day={"2.2"}
+    // />,
   ];
 
   const ProductSettings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 1000,
     arrows: true,
-    slidesToShow: 4,
+    slidesToShow: 2,
     slidesToScroll: 1,
   };
 
@@ -98,20 +100,31 @@ const OurProduct = () => {
 
   //-------------- Comment Function --------------------//
 
-  // useEffect(() => {
-  //   setFilteredProducts(
-  //     selectedCategory
-  //       ? productList.filter(
-  //           (product) => product.props.category === selectedCategory
-  //         )
-  //       : productList
-  //   );
-  // }, [lang, selectedCategory]);
+  useEffect(() => {
+    setFilteredProducts(
+      selectedCategory
+        ? productList.filter(
+            (product) => product.props.category === selectedCategory
+          )
+        : productList
+    );
+  }, [lang, selectedCategory]);
 
-  // const handleOnClick = (category) => {
-  //   setSelectedCategory(category);
-  // };
+  const handleOnClick = (category) => {
+    setSelectedCategory(category);
+  };
 
+  const handleToggle = (id) => {
+    setOpenItems((prevState) => {
+      const newState = { ...prevState };
+      Object.keys(newState).forEach((key) => {
+        newState[key] = false; // ปิด ProductNarbar ทุกอัน
+      });
+      newState[id] = !prevState[id]; // เปิดหรือปิด ProductNarbar ที่ถูกคลิก
+      setClassItem("tracking-wider");
+      return newState;
+    });
+  };
   // const productList = [
   //   {
   //     Jasmine: {
@@ -159,6 +172,49 @@ const OurProduct = () => {
   //     },
   //   },
   // ];
+
+  const products = [
+    {
+      id: 1,
+      title: lang === "th" ? "ข้าวขาวหอมมะลิ" : "",
+      content:
+        lang === "th"
+          ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถึงคุณภาพข้าวหลังหุงเป็นพิเศษ..."
+          : "",
+    },
+    {
+      id: 2,
+      title: lang === "th" ? "ข้าวขาวเสาไห้" : "",
+      content:
+        lang === "th"
+          ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถึงคุณภาพข้าวหลังหุงเป็นพิเศษ..."
+          : "",
+    },
+    {
+      id: 3,
+      title: lang === "th" ? "ข้าวสุขภาพ" : "",
+      content:
+        lang === "th"
+          ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถึงคุณภาพข้าวหลังหุงเป็นพิเศษ..."
+          : "",
+    },
+    {
+      id: 4,
+      title: lang === "th" ? "ข้าวหอมปทุมธานี" : "",
+      content:
+        lang === "th"
+          ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถึงคุณภาพข้าวหลังหุงเป็นพิเศษ..."
+          : "",
+    },
+    {
+      id: 5,
+      title: lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : "",
+      content:
+        lang === "th"
+          ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถึงคุณภาพข้าวหลังหุงเป็นพิเศษ..."
+          : "",
+    },
+  ];
 
   return (
     <div id="AboutUs">
@@ -236,19 +292,50 @@ const OurProduct = () => {
               OUR PRODUCT
             </h3>
             <h1 className="text-brown1 ">สินค้าแนะนำ</h1>
-            <div className="grid grid-cols-3 gap-6 mx-6 py-16  border-Lbrown border-b-[1px]">
+            <div className="grid grid-cols-3  mx-6 py-16  border-Lbrown border-b-[1px]">
               <ProductItem
                 bestseller={true}
                 src="/images/Banner/Hero/Jasmine.png"
+                title={
+                  lang === "th"
+                    ? "ข้าวขาวหอมมะลิ 100% ตรา เบญจรงค์"
+                    : "100% Jasmine Rice Benjarong"
+                }
+                content={
+                  lang === "th"
+                    ? "ขนาดบรรจุ: ซอง 200 กรัม กล่อง 800 กรัม (4ซอง)2 / 5 / 15 / 48 กิโลกรัม"
+                    : "Capacity: 200 grams. Box 800 grams (4 packets) 2 / 5 / 15 / 48 kilograms"
+                }
               />
               <ProductItem
                 bestseller={true}
                 src="/images/Banner/Hero/ThaiAromaticRice.png"
+                title={
+                  lang === "th"
+                    ? "ข้าวขาวหอมมะลิ (ใหม่) 100% ตรา เบญจรงค์"
+                    : "100% Jasmine Rice (New Crop) Benjarong"
+                }
+                content={
+                  lang === "th"
+                    ? "ขนาดบรรจุ: 5 กิโลกรัม"
+                    : "Capacity: 5 kilograms"
+                }
               />
               <ProductItem
                 bestseller={true}
                 src="/images/Banner/Hero/WhiteRice.png"
+                title={
+                  lang === "th"
+                    ? "ข้าวเสาไห้ 100%"
+                    : "Sao Hai Rice (100%) Benjarong"
+                }
+                content={
+                  lang === "th"
+                    ? "ขนาดบรรจุ : 2 / 5 / 15 / 48 กิโลกรัม"
+                    : "Capacity: 2 / 5 / 15 / 48 kilograms"
+                }
               />
+              ,
             </div>
           </div>
         </section>
@@ -258,29 +345,113 @@ const OurProduct = () => {
             <h3 className="font-[300] text-Lbrown ">OUR RICE</h3>
             <h1 className="text-brown1 ">ข้าวทั้งหมด</h1>
           </div>
-          <div className="">
-            <div className="flex flex-col bg-Lbrown2 my-20 mx-5 py-16 px-24 ">
-              {lang === "th" ? "" : ""}
-              <div className="w-1/3">
-                <h2 className="text-Lbrown pb-3">
+          <div className="flex bg-Lbrown2 my-20 py-6">
+            <div className="flex flex-col my-20 mx-5  px-24 w-1/3">
+              <div className="">
+                {lang === "th" ? "" : ""}
+                <h2 className="text-Lbrown font-light">
                   {lang === "th" ? "ชนิดของข้าว" : ""}
                 </h2>
-                <h1 className="text-brown1 border-b-2 py-6">
-                  {lang === "th" ? "ข้าวขาวหอมมะลิ" : ""}
-                </h1>
-                <h1 className="text-brown1 border-b-2 py-6">
-                  {lang === "th" ? "ข้าวขาวเสาไห้" : ""}
-                </h1>
-                <h1 className="text-brown1 border-b-2 py-6">
-                  {lang === "th" ? "ข้าวสุขภาพ" : ""}
-                </h1>
-                <h1 className="text-brown1 border-b-2 py-6">
-                  {lang === "th" ? "ข้าวหอมปทุมธานี" : ""}
-                </h1>
-                <h1 className="text-brown1 border-b-2 py-6">
-                  {lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : ""}
-                </h1>
+                <div>
+                  {products.map((product) => (
+                    <ProductNarbar
+                      key={product.id}
+                      isOpen={!!openItems[product.id]}
+                      classItem={classItem}
+                      title={product.title}
+                      content={product.content}
+                      onToggle={() => handleToggle(product.id)}
+                    />
+                  ))}
+                </div>
+                {/* <ProductNarbar
+                  isOpen={true}
+                  title={lang === "th" ? "ข้าวขาวหอมมะลิ" : ""}
+                  content={
+                    lang === "th"
+                      ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถุงคุณภาพข้าวหลังหุงเป็นพิเศษ เพื่อให้ข้าวหุงง่าย ได้มาตรฐาน เมล็ดข้าวเรียงตัวสวยงาม หอม นุ่ม และไม่แฉะ"
+                      : ""
+                  }
+                />
+                <ProductNarbar
+                  title={lang === "th" ? "ข้าวขาวเสาไห้" : ""}
+                  content={
+                    lang === "th"
+                      ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถุงคุณภาพข้าวหลังหุงเป็นพิเศษ เพื่อให้ข้าวหุงง่าย ได้มาตรฐาน เมล็ดข้าวเรียงตัวสวยงาม หอม นุ่ม และไม่แฉะ"
+                      : ""
+                  }
+                />
+                <ProductNarbar
+                  title={lang === "th" ? "ข้าวสุขภาพ" : ""}
+                  content={
+                    lang === "th"
+                      ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถุงคุณภาพข้าวหลังหุงเป็นพิเศษ เพื่อให้ข้าวหุงง่าย ได้มาตรฐาน เมล็ดข้าวเรียงตัวสวยงาม หอม นุ่ม และไม่แฉะ"
+                      : ""
+                  }
+                />
+                <ProductNarbar
+                  title={lang === "th" ? "ข้าวหอมปทุมธานี" : ""}
+                  content={
+                    lang === "th"
+                      ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถุงคุณภาพข้าวหลังหุงเป็นพิเศษ เพื่อให้ข้าวหุงง่าย ได้มาตรฐาน เมล็ดข้าวเรียงตัวสวยงาม หอม นุ่ม และไม่แฉะ"
+                      : ""
+                  }
+                />
+                <ProductNarbar
+                  title={lang === "th" ? "ผลิตภัณฑ์คุณภาพอื่น" : ""}
+                  content={
+                    lang === "th"
+                      ? "ข้าวหอมมะลิกลางปี ทีคัดสรรเมล็ดข้าวคุณภาพดีพิเศษ ควบคุมการผลิต โดยคำนึงถุงคุณภาพข้าวหลังหุงเป็นพิเศษ เพื่อให้ข้าวหุงง่าย ได้มาตรฐาน เมล็ดข้าวเรียงตัวสวยงาม หอม นุ่ม และไม่แฉะ"
+                      : ""
+                  }
+                /> */}
               </div>
+            </div>
+            <div className="image-slider-container w-[60%] my-auto">
+              <Slider {...ProductSettings}>
+                <ProductItem
+                  bestseller={true}
+                  src="/images/Banner/Hero/Jasmine.png"
+                  title={
+                    lang === "th"
+                      ? "ข้าวขาวหอมมะลิ 100% ตรา เบญจรงค์"
+                      : "100% Jasmine Rice Benjarong"
+                  }
+                  content={
+                    lang === "th"
+                      ? "ขนาดบรรจุ: ซอง 200 กรัม กล่อง 800 กรัม (4ซอง)2 / 5 / 15 / 48 กิโลกรัม"
+                      : "Capacity: 200 grams. Box 800 grams (4 packets) 2 / 5 / 15 / 48 kilograms"
+                  }
+                />
+                <ProductItem
+                  bestseller={true}
+                  src="/images/Banner/Hero/ThaiAromaticRice.png"
+                  title={
+                    lang === "th"
+                      ? "ข้าวขาวหอมมะลิ (ใหม่) 100% ตรา เบญจรงค์"
+                      : "100% Jasmine Rice (New Crop) Benjarong"
+                  }
+                  content={
+                    lang === "th"
+                      ? "ขนาดบรรจุ: 5 กิโลกรัม"
+                      : "Capacity: 5 kilograms"
+                  }
+                />
+                <ProductItem
+                  bestseller={true}
+                  src="/images/Banner/Hero/WhiteRice.png"
+                  title={
+                    lang === "th"
+                      ? "ข้าวขาว 5% เบญจรงค์"
+                      : "White Rice (5%) Benjarong"
+                  }
+                  content={
+                    lang === "th"
+                      ? "ขนาดบรรจุ : 1 / 5 กิโลกรัม"
+                      : "Capacity : 1 / 5 kilograms"
+                  }
+                />
+              </Slider>
             </div>
           </div>
         </section>

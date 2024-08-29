@@ -33,6 +33,15 @@ const Home = () => {
   //   slidesToScroll: 1,
   // };
 
+  // const ProductSettings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 1000,
+  //   arrows: true,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  // };
+
   useEffect(() => {
     const storedLang = localStorage.getItem("i18nextLng");
     console.log("storedLang", storedLang);
