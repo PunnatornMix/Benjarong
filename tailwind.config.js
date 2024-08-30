@@ -21,6 +21,12 @@ export default {
     fontFamily: {
       sans: ["Kanit"],
     },
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      "100%": "100%",
+    },
   },
   plugins: [require("daisyui")],
 };

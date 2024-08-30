@@ -19,6 +19,7 @@ import ProductList from "../components/ProductList/ProductList";
 import Subscibe from "../components/Subscibe/Subscibe";
 import { Link } from "react-router-dom";
 import RecommendProduct from "../components/RecommendProduct/RecommendProduct";
+import { Repeat } from "@mui/icons-material";
 
 const Home = () => {
   const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "th");
@@ -124,13 +125,66 @@ const Home = () => {
       </header>
 
       <main>
-        <section>
-          {/*----- Hero -----*/}
-          <img src="/images/mock/homeBanner.png" className="w-full" />
+        {/*----- Hero -----*/}
+        <section className="bg-[url('/images/home/BG/BannerBG-01.png')] h-[1080px] bannerImages flex items-end justify-center pb-[120px]">
+          <div className="flex">
+            <img
+              src="/images/home/Bannerถุงข้าวheader-07-07.png"
+              className="h-[610px] translate-x-[175px] -translate-y-[20px] animationBigger"
+            />
+            <img
+              src="/images/home/Bannerถุงข้าวheader-07-08.png"
+              className="h-[610px] z-10 animationBigger"
+            />
+            <img
+              src="/images/home/Bannerถุงข้าวheader-07-09.png"
+              className="h-[610px] -translate-x-[175px] -translate-y-[20px]  animationBigger"
+            />
+          </div>
+        </section>
+
+        {/*----- Best Jasmine Rice -----*/}
+        <section
+          className="h-[750px] bg-[url('/images/home/BG/BannerBG-02.png')]  bannerImages flex  items-center w-full"
+          // style={{
+          //   backgroundImage:
+          //     " url('/images/home/BG/BannerBG-01.png') ,url('/images/home/BG/BannerBG-02.png')",
+          //   backgroundRepeat: "no-repeat, no-repeat ",
+          //   backgroundPosition: "right , left",
+          //   backgroundSize: "20%,100%",
+          // }}
+        >
+          <div className=" mt-auto mb-20 w-[35%]  ">
+            <img
+              src="/images/home/รางวัล-10.png"
+              className=" object-contain h-full scale-[1.8] "
+            />
+          </div>
+          <div className="flex flex-col text-center w-[40%] px-10">
+            <h1 className="font-normal text-[70px] text-brown1 tracking-wider">
+              Best Jasmine Rice
+            </h1>
+            <p className="text-brown1">
+              {lang === "th"
+                ? `โรงงานข้าวเบญจรงค์ตั้งอยู่ที่จังหวัดฉะเชิงเทรา ซึ่งเป็นที่รู้จักในเรื่องการปลูกข้าวหอมมะลิที่ยอดเยี่ยม โดยเฉพาะพันธุ์ข้าวหอมมะลิ 105 ที่เป็นที่นิยมในประเทศไทยและทั่วโลก
+                ตั้งแต่ปี 2013 โรงงานเบญจรงค์ได้เริ่มใช้เทคโนโลยีหุ่นยนต์ในการคัดแยกและบรรจุข้าวในถุงขนาด 5 กิโลกรัม และเราเป็นรายแรกในประเทศที่ใช้วิธีการผลิตเช่นนี้
+                ตั้งแต่ปี 2019 เราได้เริ่มใช้พลังงานแสงอาทิตย์ในการผลิตไฟฟ้า ซึ่งทำให้เราสามารถลดการปล่อยก๊าซ CO2 ได้มากกว่า 1,600 ตัน และแสดงถึงความมุ่งมั่นของเราในเรื่องการรักษาสิ่งแวดล้อม
+                เพื่อเฉลิมฉลองครบรอบ 25 ปีในปี 2022-23 เราได้มอบข้าวหอมมะลิเบญจรงค์พิเศษจำนวนมากกว่า 8 ล้านถุงเป็นของขวัญให้แก่ลูกค้าของเรา เพื่อแสดงความขอบคุณสำหรับการสนับสนุนอย่างต่อเนื่อง
+                ในช่วงการสร้างแบรนด์ข้าวเบญจรงค์นั้น เราตั้งใจย่อชื่อเป็น BJR ซึ่งย่อมาจาก “Best Jasmine Rice” หรือ “ข้าวหอมมะลิที่ดีที่สุด” เพื่อสะท้อนถึงความมุ่งมั่นในการผลิตข้าวหอมมะลิที่มีคุณภาพสูงสุด
+                `
+                : ""}
+            </p>
+          </div>
+          <div className="w-[30%] ">
+            <img
+              src="/images/home/รางวัล-14.png "
+              className=" object-contain h-full scale-[1.1] origin-right "
+            />
+          </div>
         </section>
 
         {/*----- About US -----*/}
-        <section className="h-[700px] border bg-Lbrown1">
+        <section className="h-[700px] z-10 bg-white bannerImages">
           <div className="container mx-auto grid grid-cols-2 h-full py-20 gap-20">
             <div className="flex flex-col gap-4 items-center justify-center">
               <h1>ASIA INTER RICE CO., LTD</h1>
@@ -158,8 +212,8 @@ const Home = () => {
         </section>
 
         {/*----- Recommend Product -----*/}
-        <section className="bg-Lbrown2 py-12">
-          <div className="container mx-auto py-12">
+        <section className="bg-[url('/images/home/BG/BannerBG-04-04.png')] bannerImages py-12">
+          <div className="container  mx-auto py-12">
             <h1 className="mb-12 text-center">
               {lang === "th" ? "สินค้าแนะนำ" : "One More Offer For You!"}
             </h1>

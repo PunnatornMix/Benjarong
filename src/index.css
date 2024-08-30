@@ -91,7 +91,7 @@
   }
 
   .bannerImages {
-    @apply bg-no-repeat bg-center bg-cover;
+    @apply bg-no-repeat bg-center bg-100%;
   }
 
   .input:focus,
@@ -173,6 +173,10 @@
     transition-duration: 0.5s;
     transform-origin: center;
     transform: scale(1.06, 1.06);
+  }
+
+  .animationBigger {
+    @apply transition-transform duration-300 ease-in hover:scale-105 cursor-pointer hover:z-20;
   }
 
   .productAnimate {
