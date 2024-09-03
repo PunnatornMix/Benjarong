@@ -19,7 +19,7 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["Kanit"],
+      sans: ["TH-Baijam"],
     },
     backgroundSize: {
       auto: "auto",

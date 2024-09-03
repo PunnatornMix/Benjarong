@@ -7,8 +7,8 @@ function FooterList({ children, title, content }) {
     <div className="flex gap-3">
       {children}
       <div className="flex flex-col gap-2 justify-center">
-        <h3>{title}</h3>
-        <h5 className="text-light text-gray-500">{content}</h5>
+        <h4 className="font-bold">{title}</h4>
+        <p className=" text-gray-500">{content}</p>
       </div>
     </div>
   );

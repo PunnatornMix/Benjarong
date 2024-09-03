@@ -190,194 +190,200 @@ const ProductDatail = () => {
           </Box>
         </MenuNavBar>
 
-        <section className="bg-Lbrown2">
-          <div className="flex container gap-8 mx-auto py-8 ">
-            <ImageGallery
-              items={images}
-              showFullscreenButton={false}
-              showPlayButton={false}
-              showNav={false}
-              slideDuration={1000}
-            />
-            <div className="flex flex-col gap-3">
-              <h3 className="font-semibold">{filteredProducts[0]?.Name}</h3>
-              <p className="font-light text-gray-500">
-                {filteredProducts[0]?.Subtitles}
-              </p>
-              <div>
-                <p className="font-medium inline-block">
-                  {lang === "th" ? "ขายโดย" : "Sold by"}
-                </p>{" "}
-                <span>{filteredProducts[0]?.SaleBy} </span>
-              </div>
-              <div className="flex gap-3 py-5">
-                <div onClick={() => handleOnClick("two")}>
-                  <Button
-                    color={"gray"}
-                    text={"2 kg"}
-                    className={"font-normal text-lg"}
-                  />
-                </div>
-                <div onClick={() => handleOnClick("five")}>
-                  <Button
-                    color={"gray"}
-                    text={"5 kg"}
-                    className={"font-normal text-lg"}
-                  />
-                </div>
-                <div onClick={() => handleOnClick("fifteen")}>
-                  <Button
-                    color={"gray"}
-                    text={"15 kg"}
-                    className={"font-normal text-lg"}
-                  />
-                </div>
-                <div onClick={() => handleOnClick("fortyEight")}>
-                  <Button
-                    color={"gray"}
-                    text={"48 kg"}
-                    className={"font-normal text-lg"}
-                  />
-                </div>
-              </div>
-              <div className="flex items-center gap-5">
-                <h1 className="text-green">
-                  {filteredProducts[0]?.[selectedProducts]?.Price}
-                </h1>
-                <h2 className="text-red-500 line-through">
-                  {filteredProducts[0]?.[selectedProducts]?.Sale}
-                </h2>
-                <h4 className="bg-brown1 w-fit text-white py-1 px-2 rounded-md">
-                  {percentSale(
-                    filteredProducts[0]?.[selectedProducts]?.Sale,
-                    filteredProducts[0]?.[selectedProducts]?.Price
-                  )}
-                  % Off
-                </h4>
-              </div>
-              <a
-                className="flex gap-6 py-2 items-center hover:text-red-500 hover:tracking-wider"
-                href="https://shop.line.me/@benjarongrice/product/319293667"
-              >
-                <h3 className="underline font-medium">
-                  {lang === "th" ? "ติดต่อสั่งซื้อ" : "Contact to order"}
-                </h3>
-                <img src="/images/logo/icon-line.png" alt="line" />
-              </a>
-              <div>
-                <p className="font-medium inline-block">
-                  {lang === "th"
-                    ? "พร้อมจัดส่ง : "
-                    : "Available for shipping: "}
+        <main>
+          <section className="bg-Lbrown2">
+            <div className="flex container gap-8 mx-auto py-8 ">
+              <ImageGallery
+                items={images}
+                showFullscreenButton={false}
+                showPlayButton={false}
+                showNav={false}
+                slideDuration={1000}
+              />
+              <div className="flex flex-col gap-3">
+                <h3 className="font-semibold">{filteredProducts[0]?.Name}</h3>
+                <p className="font-light text-gray-500">
+                  {filteredProducts[0]?.Subtitles}
                 </p>
-                <span>{lang === "th" ? " 65 ชิ้น" : " 65 items"}</span>
-              </div>
-              <div>
-                <p className="font-medium inline-block">
-                  {lang === "th" ? "แบรนด์ : " : "Brand: "}
-                </p>
-                <span>
-                  {lang === "th" ? " ข้าวเบญจรงค์" : " Benjarong Rice"}
-                </span>
-              </div>
-              <div className="font-medium flex flex-col gap-1">
-                <p>{lang === "th" ? "แชร์สิ่งนี้ " : "Share this "}</p>
-                <div className="flex items-center ">
-                  <a
-                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                    className="twitter-share-button"
-                    data-show-count="false"
-                  >
-                    <XIcon className="h-14 w-14 fill-[#683423] hover:fill-[#3f0301]" />
-                  </a>
-                  <script
-                    async
-                    src="https://platform.twitter.com/widgets.js"
-                    charset="utf-8"
-                  ></script>
-                  <div
-                    className="fb-share-button"
-                    data-href="https://www.benjarongrice.com/th/ricecategory"
-                    data-layout=""
-                    data-size=""
-                  >
+                <div>
+                  <p className="font-medium inline-block">
+                    {lang === "th" ? "ขายโดย" : "Sold by"}
+                  </p>{" "}
+                  <span>{filteredProducts[0]?.SaleBy} </span>
+                </div>
+                <div className="flex gap-3 py-5">
+                  <div onClick={() => handleOnClick("two")}>
+                    <Button
+                      color={"gray"}
+                      text={"2 kg"}
+                      className={"font-normal text-2xl "}
+                    />
+                  </div>
+                  <div onClick={() => handleOnClick("five")}>
+                    <Button
+                      color={"gray"}
+                      text={"5 kg"}
+                      className={"font-normal text-2xl "}
+                    />
+                  </div>
+                  <div onClick={() => handleOnClick("fifteen")}>
+                    <Button
+                      color={"gray"}
+                      text={"15 kg"}
+                      className={"font-normal text-2xl "}
+                    />
+                  </div>
+                  <div onClick={() => handleOnClick("fortyEight")}>
+                    <Button
+                      color={"gray"}
+                      text={"48 kg"}
+                      className={"font-normal text-2xl "}
+                    />
+                  </div>
+                </div>
+                {/* <div className="flex items-center gap-5">
+                  <h2 className="text-green">
+                    {filteredProducts[0]?.[selectedProducts]?.Price}
+                  </h2>
+                  <h2 className="text-red-500 line-through">
+                    {filteredProducts[0]?.[selectedProducts]?.Sale}
+                  </h2>
+                  <h4 className="bg-brown1 w-fit text-white py-1 px-2 rounded-md">
+                    {percentSale(
+                      filteredProducts[0]?.[selectedProducts]?.Sale,
+                      filteredProducts[0]?.[selectedProducts]?.Price
+                    )}
+                    % Off
+                  </h4>
+                </div> */}
+                <a
+                  className="flex gap-6 py-2 items-center hover:text-red-500 hover:tracking-wider"
+                  href="https://shop.line.me/@benjarongrice/product/319293667"
+                >
+                  <h3 className="underline font-medium">
+                    {lang === "th" ? "ติดต่อสั่งซื้อ" : "Contact to order"}
+                  </h3>
+                  <img src="/images/logo/icon-line.png" alt="line" />
+                </a>
+                <div>
+                  <p className="font-medium inline-block">
+                    {lang === "th"
+                      ? "พร้อมจัดส่ง : "
+                      : "Available for shipping: "}
+                  </p>
+                  <span>{lang === "th" ? " 65 ชิ้น" : " 65 items"}</span>
+                </div>
+                <div>
+                  <p className="font-medium inline-block">
+                    {lang === "th" ? "แบรนด์ : " : "Brand: "}
+                  </p>
+                  <span>
+                    {lang === "th" ? " ข้าวเบญจรงค์" : " Benjarong Rice"}
+                  </span>
+                </div>
+                <div className="font-medium flex flex-col gap-1">
+                  <p>{lang === "th" ? "แชร์สิ่งนี้ " : "Share this "}</p>
+                  <div className="flex items-center ">
                     <a
-                      target="_blank"
-                      href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.benjarongrice.com%2Fth%2Fricecategory&amp;src=sdkpreparse"
-                      className="fb-xfbml-parse-ignore"
+                      href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                      className="twitter-share-button"
+                      data-show-count="false"
                     >
-                      <FacebookIcon className="w-[40px] cursor-pointer fill-brown1 hover:fill-HoverBrown" />
+                      <XIcon className="h-14 w-14 fill-[#683423] hover:fill-[#3f0301]" />
                     </a>
+                    <script
+                      async
+                      src="https://platform.twitter.com/widgets.js"
+                      charset="utf-8"
+                    ></script>
+                    <div
+                      className="fb-share-button"
+                      data-href="https://www.benjarongrice.com/th/ricecategory"
+                      data-layout=""
+                      data-size=""
+                    >
+                      <a
+                        target="_blank"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.benjarongrice.com%2Fth%2Fricecategory&amp;src=sdkpreparse"
+                        className="fb-xfbml-parse-ignore"
+                      >
+                        <FacebookIcon className="w-[40px] cursor-pointer fill-brown1 hover:fill-HoverBrown" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="container mx-auto pb-16">
-            <div className="border-b-2">
-              <div className="grid grid-cols-2 w-[25%]">
-                <Link
-                  to={"/product-detail"}
-                  className={`navSubpage ${selectMenu(description)}`}
-                >
-                  {lang === "th" ? "รายละเอียดสินค้า" : "Description"}
-                </Link>
-                <Link
-                  to={"/product-detail/review"}
-                  className={`navSubpage ${selectMenu(reviews)}`}
-                >
-                  {lang === "th" ? "รีวิว" : "Reviews"}
-                </Link>
+            <div className="container mx-auto pb-16">
+              <div className="border-b-2">
+                <div className="grid grid-cols-2 w-[30%]">
+                  <Link
+                    to={"/product-detail"}
+                    className={`navSubpage ${selectMenu(description)}`}
+                  >
+                    {lang === "th" ? "รายละเอียดสินค้า" : "Description"}
+                  </Link>
+                  <Link
+                    to={"/product-detail/review"}
+                    className={`navSubpage ${selectMenu(reviews)}`}
+                  >
+                    {lang === "th" ? "รีวิว" : "Reviews"}
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-10">
+                {subpage === "description" && <DescriptionSubpage />}
+                {subpage === "review" && <ReviewSubpage />}
               </div>
             </div>
-            <div className="mt-10">
-              {subpage === "description" && <DescriptionSubpage />}
-              {subpage === "review" && <ReviewSubpage />}
+          </section>
+
+          <section className="container mx-auto my-20">
+            <h2 className="my-4">
+              {lang === "th" ? "สินค้าที่เกี่ยวข้อง" : "Related Products"}
+            </h2>
+            <div className="image-slider-container">
+              <Slider {...ProductSettings}>
+                <ProductList
+                  src="/images/Banner/Hero/Jasmine.png"
+                  title={
+                    lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "Jasmine Rice 100%"
+                  }
+                  // sale={lang === "th" ? "200 บาท" : "200 Bath"}
+                  // price={lang === "th" ? "250 บาท" : "250 Bath"}
+                />
+                <ProductList
+                  src="/images/Banner/Hero/WhiteRice.png"
+                  title={
+                    lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice 100%"
+                  }
+                  // sale={lang === "th" ? "300 บาท" : "300 Bath"}
+                  // price={lang === "th" ? "350 บาท" : "350 Bath"}
+                />
+                <ProductList
+                  src="/images/Banner/Hero/HealthyRice.png"
+                  title={lang === "th" ? "ข้าวแดงหอม" : "Red Rice"}
+                  // sale={lang === "th" ? "400 บาท" : "400 Bath"}
+                  // price={lang === "th" ? "450 บาท" : "450 Bath"}
+                />
+                <ProductList
+                  src="/images/Banner/Hero/ThaiAromaticRice.png"
+                  title={
+                    lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
+                  }
+                  // sale={lang === "th" ? "500 บาท" : "500 Bath"}
+                  // price={lang === "th" ? "550 บาท" : "550 Bath"}
+                />
+              </Slider>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
 
-        <section className="container mx-auto my-20">
-          <h1 className="my-4">
-            {lang === "th" ? "สินค้าที่เกี่ยวข้อง" : "Related Products"}
-          </h1>
-          <div className="image-slider-container">
-            <Slider {...ProductSettings}>
-              <ProductList
-                src="/images/Banner/Hero/Jasmine.png"
-                title={
-                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "Jasmine Rice 100%"
-                }
-                sale={lang === "th" ? "200 บาท" : "200 Bath"}
-                price={lang === "th" ? "250 บาท" : "250 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/WhiteRice.png"
-                title={lang === "th" ? "ข้าวเสาไห้ 100%" : "Sao Hai Rice 100%"}
-                sale={lang === "th" ? "300 บาท" : "300 Bath"}
-                price={lang === "th" ? "350 บาท" : "350 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/HealthyRice.png"
-                title={lang === "th" ? "ข้าวแดงหอม" : "Red Rice"}
-                sale={lang === "th" ? "400 บาท" : "400 Bath"}
-                price={lang === "th" ? "450 บาท" : "450 Bath"}
-              />
-              <ProductList
-                src="/images/Banner/Hero/ThaiAromaticRice.png"
-                title={
-                  lang === "th" ? "ข้าวหอม 100%" : "Thai Aromatic Rice 100%"
-                }
-                sale={lang === "th" ? "500 บาท" : "500 Bath"}
-                price={lang === "th" ? "550 บาท" : "550 Bath"}
-              />
-            </Slider>
-          </div>
-        </section>
-
-        <Subscibe />
-        <Footer />
+        <footer>
+          <Subscibe />
+          <Footer />
+        </footer>
       </Fragment>
     </div>
   );

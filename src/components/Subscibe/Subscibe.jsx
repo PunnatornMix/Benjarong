@@ -33,14 +33,14 @@ function Subscibe() {
   };
 
   return (
-    <section className="h-[300px] bg-Lbrown1">
+    <section className="h-[400px] bg-[url('/images/home/BG/Banner-BG-06.jpg')] bg-center bg-cover">
       <div className="container mx-auto h-full flex items-center">
         <div className="w-[40%] flex flex-col items-center gap-3 mx-auto text-center">
-          <h1>
+          <h2>
             {lang === "th"
               ? "สมัครรับจดหมายข่าวของเรา"
               : "Subscribe our newsletter"}
-          </h1>
+          </h2>
           <p>
             {lang === "th"
               ? "สมัครรับจดหมายข่าวเพื่อรับข้อมูลอัปเดตเกี่ยวกับข้อเสนอพิเศษ สินค้าใหม่ และโปรโมชั่นต่างๆ ของเรา"
@@ -58,11 +58,11 @@ function Subscibe() {
                     ? "กรุณากรอกอีเมลของคุณ"
                     : "Enter your email address"
                 }
-                className="  w-full max-w-xs "
+                className="  w-full max-w-xs text-xl"
               />
               <button
                 type="submit"
-                className="badge cursor-pointer bg-brown1 hover:bg-HoverBrown ml-auto text-white py-[20px] px-5"
+                className="badge cursor-pointer bg-brown1 text-xl hover:bg-HoverBrown ml-auto text-white py-[20px] px-5"
               >
                 Subscibe
               </button>

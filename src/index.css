@@ -1,40 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 /* @import "~react-image-gallery/styles/css/image-gallery.css"; */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "TH-Baijam";
+  src: url("./fonts/TH-Baijam.ttf") format("truetype");
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: "TH-Baijam";
+  src: url("./fonts/TH-Baijam-Bold.ttf") format("truetype");
+  font-style: normal;
+} */
+
+/* input .dAZYal {
+  @apply text-[50px] !important;
+} */
+
 @layer base {
   body {
-    @apply bg-white text-black;
+    @apply bg-white text-brown1;
   }
   h1 {
-    font-size: clamp(24px, 3vw, 36px);
+    font-size: clamp(24px, 15vw, 100px);
     font-weight: bold;
+    line-height: normal;
   }
   h2 {
-    font-size: clamp(21px, 3vw, 28px) !important;
-    font-weight: 500;
+    font-size: clamp(21px, 3vw, 50px) !important;
+    font-weight: bold;
+    line-height: 2.25rem;
   }
   h3 {
-    font-size: clamp(18px, 3vw, 20px) !important;
+    font-size: clamp(30px, 3vw, 35px) !important;
     font-weight: medium;
+    line-height: 2.25rem;
   }
   h4 {
-    font-size: clamp(12px, 3vw, 16px) !important;
+    font-size: clamp(24px, 3vw, 27px) !important;
     font-weight: medium;
   }
   h5 {
-    font-size: clamp(10px, 3vw, 14px) !important;
+    font-size: clamp(20px, 3vw, 22px) !important;
     font-weight: medium;
   }
   title {
     font-size: clamp(18px, 3vw, 20px) !important;
   }
-  p {
-    font-size: clamp(16px, 3vw, 18px) !important;
+  a {
+    font-size: clamp(24px, 3vw, 26px) !important;
     font-weight: medium;
+  }
+  p {
+    font-size: clamp(24px, 3vw, 27px) !important;
+    font-weight: medium;
+    line-height: 2.25rem;
+  }
+  span {
+    font-size: clamp(24px, 3vw, 27px) !important;
+    font-weight: medium;
+    line-height: 2.25rem;
   }
 }
 /* -------- Search Box --------- */
@@ -43,6 +73,7 @@
   top: 100%; /* วาง dropdown ให้เริ่มต้นจากด้านล่างของกล่องค้นหา */
   left: 8.5%;
   width: 83%;
+  font-size: 22px;
   /* background-color: red !important; */
   /* border: 1px solid #ccc; */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -58,7 +89,7 @@
   /* border-radius: 100px !important ; */
   /* border: 1px solid #100f9c !important; */
   /* background-color: #100f9c !important; */
-  @apply input input-bordered bg-transparent  rounded-full w-[300px] rounded-r-none border-brown1 flex items-center gap-2 !important;
+  @apply input input-bordered bg-transparent  rounded-full w-[300px] rounded-r-none border-brown1 flex items-center gap-2 text-[22px] !important;
 }
 
 .dAZYal:hover,
@@ -139,6 +170,10 @@
     ) !important;
   }
 
+  .partnerLogo img {
+    @apply m-auto;
+  }
+
   .image-slider-container .slick-prev:before,
   .image-slider-container .slick-next:before {
     color: #481210;
@@ -148,7 +183,7 @@
   }
 
   .menuHover {
-    @apply px-2 py-1 font-medium  text-center w-[150px];
+    @apply px-2  font-medium  text-center w-[150px];
   }
   .menuHover:hover {
     @apply border-b-[2.5px] w-fit mx-auto;
@@ -175,8 +210,12 @@
     transform: scale(1.06, 1.06);
   }
 
+  .animationHBigger {
+    @apply transition-transform duration-300 ease-in hover:scale-105 cursor-pointer;
+  }
+
   .animationBigger {
-    @apply transition-transform duration-300 ease-in hover:scale-105 cursor-pointer hover:z-20;
+    @apply transition-transform duration-300 ease-in scale-105 cursor-pointer;
   }
 
   .productAnimate {

@@ -24,7 +24,7 @@ function MenuNavBar({ children }) {
   const lang = localStorage.getItem("i18nextLng");
 
   // const [active, setActive] = useState();
-  console.log("pathname", window.location.pathname);
+  // console.log("pathname", window.location.pathname);
   const path = window.location.pathname;
 
   const home = path === "/" ? true : false;
@@ -99,7 +99,7 @@ function MenuNavBar({ children }) {
 
   return (
     <>
-      <section className="container mx-auto h-32 w-full flex justify-between  items-center">
+      <section className="container mx-auto h-32 w-full flex justify-between items-center">
         <a href="/">
           <img src="/images/logo/band.png" className="h-32 py-6" />
         </a>
@@ -114,10 +114,11 @@ function MenuNavBar({ children }) {
               value=""
               data={dataList}
               onSelect={handleSelect}
+              // inputFontSize={"25px"}
             />
           </div>
 
-          <select className="select select-bordered border-l-0 border-brown1 w-full bg-transparent rounded-none max-w-40">
+          <select className="select select-bordered border-l-0 border-brown1 w-full bg-transparent rounded-none max-w-40 text-[22px]">
             <option disabled selected>
               {lang === "th" ? "หมวดหมู่ทั้งหมด" : "All Categories"}
             </option>
@@ -163,7 +164,7 @@ function MenuNavBar({ children }) {
       </section>
 
       <section className="bg-brown1 ">
-        <div className="container mx-auto pl-[11%] text-white flex h-[60px] items-center gap-20">
+        <div className="container mx-auto  text-white flex justify-center h-[60px] items-center gap-20">
           <div className="xl:grid xl:grid-cols-5 hidden  items-center">
             <a href="/" className={`menuHover ${selectMenu(home)}`}>
               {lang === "th" ? "หน้าแรก " : "Home"}

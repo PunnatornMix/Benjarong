@@ -10,7 +10,7 @@ function ReviewMenu({ src, title, content }) {
             className="fa-solid fa-utensils fa-2xl"
             style={{ color: "#683423" }}
           ></i>
-          <h1 className="font-medium text-brown1">{title}</h1>
+          <h2 className="font-medium text-brown1">{title}</h2>
         </div>
         <p>{content}</p>
       </div>
