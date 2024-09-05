@@ -97,7 +97,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer flex flex-col pt-16">
-          <h3 className="font-bold">เครื่องหมายการค้า</h3>
+          <h3 className="font-bold text-nowrap">รางวัลและมาตรฐานคุณภาพ</h3>
           <div className="grid grid-cols-3 gap-5">
             <img src="/images/เครื่องหมายการค้า/Halal.jpg" className="h-12" />
             <img
