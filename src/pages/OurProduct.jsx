@@ -419,7 +419,9 @@ const OurProduct = () => {
                   {filteredProducts.map((product, index) => product)}
                 </Slider>
               ) : (
-                <>{filteredProducts.map((product, index) => product)}</>
+                <div className="w-fit">
+                  {filteredProducts.map((product, index) => product)}
+                </div>
               )}
             </div>
           </div>

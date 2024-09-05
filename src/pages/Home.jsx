@@ -126,19 +126,19 @@ const Home = () => {
 
       <main>
         {/*----- Hero -----*/}
-        <section className="bg-[url('/images/home/BG/BannerBG-01.png')] h-[1080px] bannerImages flex items-end justify-center pb-[120px]">
+        <section className="bg-[url('/images/home/BG/BannerBG-01.png')] h-[clamp(600px,60vw,1080px)] bannerImages flex items-end justify-center pb-[120px]">
           <div className="flex">
             <img
               src="/images/home/Bannerถุงข้าวheader-07-07.png"
-              className="h-[610px] translate-x-[175px] -translate-y-[20px] animationHBigger hover:z-20"
+              className="h-[clamp(200px,32vw,610px)] translate-x-[40%] -translate-y-[20px] animationHBigger hover:z-20"
             />
             <img
               src="/images/home/Bannerถุงข้าวheader-07-08.png"
-              className="h-[610px] z-10 animationHBigger hover:z-20"
+              className="h-[clamp(200px,32vw,610px)] z-10 animationHBigger hover:z-20"
             />
             <img
               src="/images/home/Bannerถุงข้าวheader-07-09.png"
-              className="h-[610px] -translate-x-[175px] -translate-y-[20px]  animationHBigger hover:z-20"
+              className="h-[clamp(200px,32vw,610px)] -translate-x-[40%] -translate-y-[20px]  animationHBigger hover:z-20"
             />
           </div>
         </section>
@@ -228,68 +228,26 @@ const Home = () => {
             <h2 className="mb-6 text-center border-b-[4.5px] border-Lbrown w-fit mx-auto pb-4 px-6">
               {lang === "th" ? "สินค้าแนะนำ" : "One More Offer For You!"}
             </h2>
-            {/* <div className="grid grid-cols-3 gap-6">
-              <OfferList
-                src={"/images/Banner/Hero/HealthyRice.png"}
-                title={
-                  lang === "th"
-                    ? "Get 30% off on Fruit"
-                    : "Get 30% off on Fruit"
-                }
-                content={
-                  lang === "th"
-                    ? "There are many variations of passages of Lorem Ipsum available."
-                    : "There are many variations of passages of Lorem Ipsum available."
-                }
-              />
-              <OfferList
-                src={"/images/Banner/Hero/Jasmine.png"}
-                title={
-                  lang === "th"
-                    ? "Get 30% off on Fruit"
-                    : "Get 30% off on Fruit"
-                }
-                content={
-                  lang === "th"
-                    ? "There are many variations of passages of Lorem Ipsum available."
-                    : "There are many variations of passages of Lorem Ipsum available."
-                }
-              />
-              <OfferList
-                src={"/images/Banner/Hero/MixedRice.png"}
-                title={
-                  lang === "th"
-                    ? "Get 30% off on Fruit"
-                    : "Get 30% off on Fruit"
-                }
-                content={
-                  lang === "th"
-                    ? "There are many variations of passages of Lorem Ipsum available."
-                    : "There are many variations of passages of Lorem Ipsum available."
-                }
-              />
-            </div> */}
+
             <div className="grid grid-cols-3 gap-6">
               <RecommendProduct
                 src={"/images/home/ข้าวเสาไห้-1.png"}
-                nameEN={lang === "th" ? "Sao Hai Rice" : ""}
+                name={lang === "th" ? "ข้าวขาวเสาไห้" : "Sao Hai Rice"}
                 bg={"/images/home/ข้าวเสาไห้.png"}
 
                 // nameTH={lang === "th" ? "ข้าวขาวเสาไห้" : ""}
               />
               <RecommendProduct
                 src={"/images/home/ข้าวหอมมะล-100-1.png "}
-                nameEN={lang === "th" ? "100% Jasmine Rice" : ""}
+                name={
+                  lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : "100% Jasmine Rice"
+                }
                 bg={"/images/home/ข้าวหอมมะล-100.png"}
-                // nameTH={lang === "th" ? "ข้าวขาวหอมมะลิ 100%" : ""}
               />
               <RecommendProduct
                 src={"/images/home/ข้าวแดงหอม-1.png"}
-                nameEN={lang === "th" ? "Healthy Rice" : ""}
+                name={lang === "th" ? "ข้าวเพื่อสุขภาพ" : "Healthy Rice"}
                 bg={"/images/home/ข้าวแดงหอม.png"}
-
-                // nameTH={lang === "th" ? "ข้าวเพื่อสุขภาพ" : ""}
-                // className={"w-[267px] object-cover"}
               />
             </div>
           </div>

@@ -81,14 +81,6 @@
 }
 
 .dAZYal {
-  /* position: relative !important;
-  margin-inline: auto !important;
-  width: 83% !important;
-  display: flex; */
-
-  /* border-radius: 100px !important ; */
-  /* border: 1px solid #100f9c !important; */
-  /* background-color: #100f9c !important; */
   @apply input input-bordered bg-transparent  rounded-full w-[300px] rounded-r-none border-brown1 flex items-center gap-2 text-[22px] !important;
 }
 
@@ -98,13 +90,7 @@
 }
 
 .iiTrXQ {
-  position: relative !important; /* ถ้า class นี้ถูกใช้ใน dropdown */
-  margin-inline: auto !important;
-  width: 83% !important;
-  display: flex;
-  border-radius: 100px !important ;
-  border: 1px solid #100f9c !important;
-  /* background-color: #100f9c !important; */
+  @apply input input-bordered bg-transparent  rounded-full w-[300px] rounded-r-none border-brown1 flex items-center gap-2 text-[22px] !important;
 }
 
 .iiTrXQ:hover,
@@ -122,7 +108,7 @@
   }
 
   .bannerImages {
-    @apply bg-no-repeat bg-center bg-100%;
+    @apply bg-no-repeat bg-center  bg-cover;
   }
 
   .input:focus,
@@ -211,15 +197,15 @@
   }
 
   .animationHBigger {
-    @apply transition-transform duration-300 ease-in hover:scale-105 cursor-pointer;
+    @apply transition-transform duration-150 ease-in hover:scale-105 cursor-pointer;
   }
 
   .animationBigger {
-    @apply transition-transform duration-300 ease-in scale-105 cursor-pointer;
+    @apply transition-transform duration-150 ease-in scale-105 cursor-pointer;
   }
 
   .productAnimate {
-    @apply transition ease-in-out  hover:-translate-y-3;
+    @apply transition ease-in-out hover:-translate-y-3;
   }
 
   .home_button {
