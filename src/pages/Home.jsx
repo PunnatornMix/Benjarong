@@ -126,7 +126,7 @@ const Home = () => {
 
       <main>
         {/*----- Hero -----*/}
-        <section className="bg-[url('/images/home/BG/BannerBG-01.png')] h-[clamp(600px,60vw,1080px)] bannerImages flex items-end justify-center pb-[120px]">
+        <section className="lg:bg-[url('/images/home/BG/BannerBG-01.png')]  h-[clamp(600px,60vw,1080px)] bannerImages flex items-end justify-center pb-[120px]">
           <div className="flex">
             <img
               src="/images/home/Bannerถุงข้าวheader-07-07.png"
@@ -154,15 +154,15 @@ const Home = () => {
           //   backgroundSize: "20%,100%",
           // }}
         >
-          <div className=" mt-auto mb-20 w-[30%]  ">
+          <div className=" my-auto mt-[15%] w-[30%]  ">
             <img
               src="/images/home/รางวัล-10.png"
-              className=" object-contain h-full scale-[1.8] "
+              className=" object-contain h-full scale-[2] "
             />
           </div>
           <div className="flex flex-col text-center w-[40%] px-10 tracking-[.02em] mb-10">
-            <h1 className=" text-brown1">Best Jasmine Rice</h1>
-            <p className="text-brown1">
+            <h1 className=" text-brown1 ">Best Jasmine Rice</h1>
+            <p className="text-brown1 z-20">
               {lang === "th"
                 ? `โรงงานข้าวเบญจรงค์ตั้งอยู่ที่จังหวัดฉะเชิงเทรา ซึ่งเป็นที่รู้จักในเรื่องการปลูกข้าวหอมมะลิที่ยอดเยี่ยม โดยเฉพาะพันธุ์ข้าวหอมมะลิ 105 ที่เป็นที่นิยมในประเทศไทยและทั่วโลก
                 ตั้งแต่ปี 2013 โรงงานเบญจรงค์ได้เริ่มใช้เทคโนโลยีหุ่นยนต์ในการคัดแยกและบรรจุข้าวในถุงขนาด 5 กิโลกรัม และเราเป็นรายแรกในประเทศที่ใช้วิธีการผลิตเช่นนี้
@@ -170,7 +170,7 @@ const Home = () => {
                 เพื่อเฉลิมฉลองครบรอบ 25 ปีในปี 2022-23 เราได้มอบข้าวหอมมะลิเบญจรงค์พิเศษจำนวนมากกว่า 8 ล้านถุงเป็นของขวัญให้แก่ลูกค้าของเรา เพื่อแสดงความขอบคุณสำหรับการสนับสนุนอย่างต่อเนื่อง`
                 : ""}
             </p>
-            <p className="text-brown1 font-bold">
+            <p className="text-brown1 font-bold z-20">
               {lang === "th"
                 ? `ในช่วงการสร้างแบรนด์ข้าวเบญจรงค์นั้น เราตั้งใจย่อชื่อเป็น BJR ซึ่งย่อมาจาก “Best Jasmine Rice” หรือ “ข้าวหอมมะลิที่ดีที่สุด” เพื่อสะท้อนถึงความมุ่งมั่นในการผลิตข้าวหอมมะลิที่มีคุณภาพสูงสุด`
                 : ""}
